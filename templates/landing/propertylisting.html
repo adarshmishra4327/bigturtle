@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+        <div class="container-fluid">
+          <a class="navbar-brand">Property Listing</a>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-center">
+        <h1 class="justify-content-center mb-5 ">List Your Property</h1>
+      </div>
+      <form
+        role="form"
+        action="/addproperty/"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+
+        <div class="card text-center">
+          <div class="card-header bg-info">
+            <h4><p style="color: #e3f2fd;">Property Detailes</p> </h4></Details>
+          </div>
+         
+        </div>
+
+        <div class="form-group">
+          <label for="email">Property Area (In Acres)*</label>
+          <input name="area" type="text" class="form-control" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="email">PropertyType*</label>
+          <select name="propertytype" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>VILLA</option>
+            <option>COMMERCIAL</option>
+            <option>RESIDENTIAL</option>
+            <option>APARETMENT</option>
+            <option>AGRICULTURE</option>
+            <option>NON AGRICULTURE</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Total Units*</label>
+          <input name="totalunit" type="text" class="form-control" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="email">Available Units*</label>
+          <input
+            name="availableunit"
+            type="text"
+            class="form-control"
+            id="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Possession Date*</label>
+          <input
+            name="possassiondate"
+            type="date"
+            class="form-control"
+            id="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">State*</label>
+          <select name="state" class="form-control" id="sel1">
+            <option value="">SELECT</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+            <option value="Daman and Diu">Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Puducherry">Puducherry</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+          </select>
+        </div>
+
+        
+        <div class="form-group">
+          <label for="email">Pincode*</label>
+          <input
+            name="pincode"
+            type="text"
+            class="form-control"
+            id="email"
+          />
+        </div>
+
+
+
+        
+        
+        <div class="form-group">
+          <label for="email">Price</label>
+          <select name="price" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>LESS THAN 20 LAKH</option>
+            <option>20-30 LAKH</option>
+            <option>30-50 LAKH</option>
+            <option>50-70 LAKH</option>
+            <option>70-1cr</option>
+            <option>Greater than 1cr</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pwd">Total No of Floors*</label>
+          <input name="nooffloor" type="text" class="form-control" id="pwd" />
+        </div>
+      
+        <div class="form-group">
+          <label for="email">Builder Name**</label>
+          <input
+            name="buildername"
+            type="text"
+            class="form-control"
+            id="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Property Name*</label>
+          <input
+            name="propertyname"
+            type="text"
+            class="form-control"
+            id="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Property Status*</label>
+          <select name="status" class="form-control" id="sel1">
+            <option>Under Construction</option>
+            <option>PreLaunch,OC</option>
+            <option>Ready to Move-in</option>
+            <option>received</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Property Description*</label>
+          <input
+            name="description"
+            type="text"
+            class="form-control"
+            id="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Property Video </label>
+          <input name="video" type="text" class="form-control" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="email">Property Condition*</label>
+
+          <select name="condition" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>NEW</option>
+            <option>OLD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Year Built*</label>
+          <input name="yearbuild" type="text" class="form-control" id="pwd" />
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header bg-info">
+              <h4><p style="color: #e3f2fd;">Property Amenities</p> </h4></Details>
+          </div>
+         
+        </div>
+
+
+
+
+
+
+
+        <div class="card-deck mt-5 mb-5">
+          <div class="card">
+            
+            <div class="card-body">
+              <h5 class="card-title">Unit Based Amenities </h5>
+              
+              <div class="form-group">
+                <label for="email">Electricity</label>
+                <select name="electricity" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Furnished</label>
+                <select name="Furnished" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">AC
+                </label>
+                <select name="ac" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Modular Kitchen</label>
+                <select name="modularkitchen" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Water Supply </label>
+                <select name="watersupply" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">LPG Pipe Supply</label>
+                <select name="lpgpipesupply" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Garbage Disposables</label>
+                <select name="garbagedisposable" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Cooling*</label>
+                <select name="cooling" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Swimming Pool </label>
+                <select name="Swimming" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Gym</label>
+                <select name="gym" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+
+      
+            </div>
+            <div class="card-footer">
+              
+            </div>
+          </div>
+          <div class="card">
+           
+            <div class="card-body">
+              <h5 class="card-title">Community -Amenities</h5>
+             
+
+
+              <div class="form-group">
+                <label for="email">Visiting Parking</label>
+                <select name="visitingparking" class="form-control" id="sel1">
+                  <option>SELECT</option>
+                  <option>YES</option>
+                  <option>NO</option>
+                </select>
+              </div>
+
+              
+     
+
+        <div class="form-group">
+          <label for="email">CCTV</label>
+          <select name="cctv" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="email">WIFI</label>
+          <select name="wifi" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Club House</label>
+          <select name="clubhouse" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Sketing Ground</label>
+          <select name="sketingground" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Jogging Track</label>
+          <select name="joggingtrack" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Kid's Play Area</label>
+          <select name="kidsplayarea" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Power Backup</label>
+          <select name="powerbackup" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Guest suites</label>
+          <select name="guiestsuites" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Card based Entry </label>
+          <select name="accesscardentry" class="form-control" id="sel1">
+            <option>SELECT</option>
+            <option>YES</option>
+            <option>NO</option>
+          </select>
+        </div>
+
+
+
+            </div>
+            <div class="card-footer">
+              
+            </div>
+          </div>
+          <div class="card">
+            
+            <div class="card-body">
+              <h5 class="card-title">Neighborhood Amenities </h5>
+
+
+              <div class="form-group">
+                <label for="email">Playground</label>
+              <select name="playground" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+
+
+             
+              <div class="form-group">
+                <label for="email">Railway Stations </label>
+              <select name="railwaysation" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">Metro</label>
+              <select name="metro" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">Bus Station </label>
+              <select name="busstation" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">Temple </label>
+              <select name="temple" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">Highways</label>
+              <select name="highways" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">Hospitals</label>
+              <select name="hospitals" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">Malls</label>
+              <select name="mall" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">School</label>
+              <select name="school" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+              <div class="form-group">
+                <label for="email">College</label>
+              <select name="college" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+
+
+              <div class="form-group">
+                <label for="email">Nursing Home</label>
+              <select name="nurshinghome" class="form-control" id="sel1">
+                <option>SELECT</option>
+                <option>WITHIN 1KM</option>
+                <option>WITHIN 2KM</option>
+                <option>WITHIN 3KM</option>
+                <option>WITHIN 4KM</option>
+                <option>WITHIN 5KM</option>
+              </select>
+            
+              </div>
+
+
+
+              
+
+
+            </div>
+            <div class="card-footer">
+              
+            </div>
+          </div>
+        </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+       
+      
+       
+
+       
+
+
+     
+
+
+
+
+
+
+
+        <div class="card text-center">
+          <div class="card-header bg-info">
+            <h4><p style="color: #e3f2fd;">Contact Detailes</p> </h4></Details>
+          </div>
+         
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input name="email" type="text" class="form-control" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="email">Mobileno</label>
+          <input name="mobileno" type="text" class="form-control" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="email">Builder Address</label>
+          <input name="builderaddress" type="text" class="form-control" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="email">Property Address</label>
+          <input name="propertyaddress" type="text" class="form-control" id="email" />
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header bg-info">
+            <h4><p style="color: #e3f2fd;">Property Images</p> </h4></Details>
+          </div>
+         
+        </div>
+
+
+
+
+
+    
+
+        <div class="form-group">
+          <label for="pwd">Thumbnail</label>
+          <input
+            name="thumbnail"
+            type="file"
+            name="image"
+            class="form-control"
+            id="pwd"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pwd">Image1</label>
+          <input type="file" name="image1" class="form-control" id="pwd" />
+        </div>
+        <div class="form-group">
+          <label for="pwd">Image2</label>
+          <input name="image2" type="file" class="form-control" id="pwd" />
+        </div>
+        <div class="form-group">
+          <label for="pwd">Image3</label>
+          <input name="image3" type="file" class="form-control" id="pwd" />
+        </div>
+        <div class="form-group">
+          <label for="pwd">Image4</label>
+          <input
+            name="image4"
+            name="bathroom"
+            type="file"
+            class="form-control"
+            id="pwd"
+          />
+        </div>
+       
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" />
+            Remember me
+          </label>
+        </div>
+        <div class="d-flex justify-content-center mb-5">
+          <button type="submit" class="btn btn-warning">Submit</button>
+        </div>
+        {% csrf_token %}
+      </form>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

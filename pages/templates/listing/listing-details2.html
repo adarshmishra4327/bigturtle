@@ -1,0 +1,1363 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyplusDecor</title>
+    <!-- Vendor Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/plugins/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/select2.min.css' %}">
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/all.min.css' %}">
+    <!-- Acres Style sheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/primary-skin.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/misc/favicon.ico' %}">
+    <style>
+        .fit-imaget{
+          width: 100%;
+          object-fit: cover;
+          height: 190px; /* only if you want fixed height */
+          }
+        .fit-imagert{
+          width: 100%;
+          object-fit: cover;
+          height: 90px; /* only if you want fixed height */
+          }
+        .fit-imagegt{
+          width: 100%;
+          object-fit: cover;
+          height: 400px; /* only if you want fixed height */
+          }
+
+        .fit-imagegb{
+          width: 100%;
+          object-fit: cover;
+          height: 90px; /* only if you want fixed height */
+          }
+        
+        .fit-logo{
+          width: 100%;
+          object-fit: cover;
+          height: 60px; /* only if you want fixed height */
+          }
+
+        .fit-imagep{
+              width: 100%;
+              object-fit: cover;
+              height: 310px; /* only if you want fixed height */
+              }
+
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="acr-preloader">
+        <div class="acr-preloader-inner">
+            <div class="lds-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Aside (Mobile Navigation) -->
+    <aside class="main-aside">
+        <div class="aside-title">
+            <div class="aside-controls aside-trigger">
+                <h4>Menu</h4>
+                <div class="close-btn close-dark">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="aside-scroll">
+            <ul>
+                <!-- Pages Start -->
+                <li class="menu-section-title">Pages</li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="{% url 'properties' %}"> <i class="flaticon-home"></i> Home </a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="{% url 'properties' %}">Home </a> </li>
+                    </ul>
+                </li>
+                
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> <i class="flaticon-layers"></i> Pages</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="{% url 'aboutus' %}">About Us</a> </li>
+                        <li class="menu-item"> <a href="{% url 'services' %}">Services</a> </li>
+                        <!-- <li class="menu-item"> <a href="{% url 'faq' %}">FAQ</a> </li> -->
+                        <!-- <li class="menu-item"> <a href="{% url 'pricing' %}">Pricing</a> </li> -->
+                        <li class="menu-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+                        <!-- <li class="menu-item"> <a href="{% url 'login' %}">Login</a> </li>
+                        <li class="menu-item"> <a href="{% url 'register' %}">Register</a> </li>
+                        <li class="menu-item"> <a href="{% url 'legal' %}">Legal</a> </li> -->
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"><i class="flaticon-list"></i>Properties</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="{% url 'properties-apartments' %}">Apartments</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-villas' %}">Villas</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-residential' %}">Residential</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-duplex' %}">Duplex</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-commercial' %}">Commercial</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-plots' %}">Plots</a> </li>
+
+                        <a href="{% url 'submit-listing' %}" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
+                    </ul>
+                </li>
+                
+                <!-- Pages End -->
+                <!-- Social Media Start -->
+                <li class="menu-section-title">Get Social</li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-facebook"></i>Facebook</a> </li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-linkedin"></i> Linkedin </a> </li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-twitter"></i> Twitter </a> </li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-instagram"></i> Instagram </a> </li>
+                <!-- Social Media End -->
+            </ul>
+        </div>
+    </aside>
+    <div class="aside-overlay aside-trigger"></div>
+    <!-- Header Start -->
+    <header class="main-header header-fw can-sticky header-1">
+        <!-- Top Header Start -->
+        <div class="top-header">
+            <div class="top-header-inner">
+                <ul class="social-media">
+                    <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                </ul>
+                <ul class="top-header-nav">
+                    <li> <a href="{% url 'login' %}"> Login</a> </li>
+                    <li>or</li>
+                    <li> <a href="{% url 'register' %}"> Signup</a> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Top Header End -->
+        <nav class="navbar">
+            <!-- Logo -->
+            <a class="navbar-brand" href=""> <img src="{% static 'img/property_backimg/logo.jpg' %}" alt="logo" class="img-responsive fit-logo"> </a>
+            <!-- Menu -->
+            <ul class="navbar-nav">
+                <li class="menu-item menu-item-has-children">
+                    <a href="{% url 'properties' %}">Home </a>
+                    <ul class="submenu">
+                        
+                        <li class="menu-item"> <a href="{% url 'properties' %}">Home </a> </li>
+                    </ul>
+                </li>
+                
+                <li class="menu-item menu-item-has-children mega-menu-wrapper">
+                    <a href="#">Pages</a>
+                    <ul class="submenu">
+                        <li>
+                            <!-- <img src="https://via.placeholder.com/500x884" alt="img"> -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Company</h5>
+                                            <a href="{% url 'aboutus' %}">About Us</a>
+                                            <a href="{% url 'services' %}">Services</a>
+                                            <a href="{% url 'contactus' %}">Contact Us</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Properties</h5>
+                                            <a href="{% url 'properties' %}">Find Home</a>
+                                            <a href="{% url 'submit-listing' %}">Submit Listing</a>
+                                            <a href="{% url 'properties-apartments' %}">Properties</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Interiors</h5>
+                                            <a href={% url 'interiors' %}>Find Designers</a>
+                                            <a href={% url 'designs' %}>Search Designs</a>
+                                            <a href={% url 'portfolios' %}>View Portfolios</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Partner with Us</h5>
+                                            <a href={% url 'submit-listing' %}>Register your Property</a>
+                                            <a href={% url 'listingportfolio' %}>Interiors Business Registration</a>
+                                            <a href={% url 'listingportfolio' %}>List Portfolios</a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#">Properties</a>
+                    <ul class="submenu">
+
+                        <li class="menu-item"> <a href="{% url 'properties-apartments' %}">Apartments</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-villas' %}">Villas</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-residential' %}">Residential</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-duplex' %}">Duplex</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-commercial' %}">Commercial</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-plots' %}">Plots</a> </li>
+                    </ul>
+                </li>
+                
+            </ul>
+            <div class="header-controls">
+                <ul class="header-controls-inner d-none d-lg-flex">
+                    <li>
+                        <a href="{% url 'submit-listing' %}" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
+                    </li>
+                </ul>
+                <!-- Toggler -->
+                <div class="aside-toggler aside-trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+    <!-- Banner Start -->
+    <div class="banner banner-2 slider-no-padding">
+        <div class="banner-item">
+            <div class="banner-slider">
+                {% for i in home %}
+                {% for key, value in i.items %}
+                {% if key == "gallery_links__thumbnail" %}
+                <div class="banner-inner bg-cover bg-center" style="background-image: url('{{value}}')"></div>
+                {% endif %}
+                {% if key == "gallery_links__image_4" %}
+                <div class="banner-inner bg-cover bg-center" style="background-image: url('{{value}}')"></div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="acr-listing-details">
+                <div class="acr-listing-section">
+                    <div class="acr-listing-nav">
+                        {% for i in home %}
+                        {% for key, value in i.items %}
+                        {% if key == "details__builder_name" %}
+                        <a href="#" class="btn-custom secondary">{{value}}</a>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="acr-listing-section-body">
+                        <div class="acr-listing-section-price">
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "gallery_links__status" %}
+                            <span>{{value}}</span>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "details__price_withunit" %}
+                            <h3>Rs. {{value}}</h3>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                            <span>Est. Mortgage</span>
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "details__mortgage" %}
+                            <p>Rs. {{value}}/month*</p>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="acr-listing-section">
+                    <div class="acr-listing-section-body">
+                        {% for i in home %}
+                        {% for key, value in i.items %}
+                        {% if key == "details__name" %}
+                        <h4> {{value}}</h4>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        <div class="acr-listing-icons">
+                            <div class="acr-listing-icon">
+                                <i class="flaticon-bedroom"></i>
+                                <span>Beds</span>
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "details__beds" %}
+                                <span class="acr-listing-icon-value">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="acr-listing-icon">
+                                <i class="flaticon-bathroom"></i>
+                                <span>Baths</span>
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "details__bathrooms" %}
+                                <span class="acr-listing-icon-value">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="acr-listing-icon">
+                                <i class="flaticon-ruler"></i>
+                                <span>Sqft</span>
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "details__space" %}
+                                <span class="acr-listing-icon-value">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% for i in home %}
+                        {% for key, value in i.items %}
+                        {% if key == "details__description" %}
+                        <p>
+                            {{value}}
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="acr-listing-section">
+                    <div class="acr-listing-controls">
+                        <a href="#" class="acr-listing-control">
+                            <i class="flaticon-share"></i>
+                        </a>
+                        <a href="#" class="acr-listing-control">
+                            <i class="flaticon-star"></i>
+                        </a>
+                        <a href="#" class="acr-schedule-tour acr-listing-control">
+                            <i class="flaticon-event"></i>
+                            <span>Schedule a Tour</span>
+                        </a>
+                    </div>
+                    <div class="acr-listing-section-body">
+                        <div class="acr-listing-meta">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-3 col-sm-3">
+                                    <div class="acr-listing-meta-item">
+                                        <span>Lot Size</span>
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "basic__project_area" %}
+                                        <p>{{value}} Acres</p>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-3 col-sm-3">
+                                    <div class="acr-listing-meta-item">
+                                        <span>Total</span>
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "basic__total_units" %}
+                                        <p>{{value}}</p>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-3 col-sm-3">
+                                    <div class="acr-listing-meta-item">
+                                        <span>Available</span>
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "basic__available_units" %}
+                                        <p>{{value}}</p>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-3 col-sm-3">
+                                    <div class="acr-listing-meta-item">
+                                        <span>Year</span>
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "basic__launch_year" %}
+                                        <p>{{value}}</p>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-3 col-sm-3">
+                                    <div class="acr-listing-meta-item">
+                                        <span>Towers</span>
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "basic__total_no_of_towers" %}
+                                        <p>{{value}}</p>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-3 col-sm-3">
+                                    <div class="acr-listing-meta-item">
+                                        <span>Floors</span>
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "basic__total_no_of_floors" %}
+                                        <p>{{value}}</p>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="acr-arrows">
+            <i class="slider-prev fas fa-arrow-left slick-arrow"></i>
+            <i class="slider-next fas fa-arrow-right slick-arrow"></i>
+        </div>
+    </div>
+    <!-- Banner End -->
+    <div class="section listing-wrapper">
+        <div class="container">
+            <div class="row">
+                <!-- Listings Start -->
+                <div class="col-lg-8">
+                    <!-- Content Start -->
+                    <div class="listing-content">
+                        <h4>Property Overview</h4>
+                        {% for i in home %}
+                        {% for key, value in i.items %}
+                        {% if key == "details__description" %}
+                        <p>
+                            {{value}}
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        
+                        
+                    </div>
+                    <!-- Content End -->
+                    <div class="listing-thumbnail">
+                        <div class="listing-thumbnail-slider-main">
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "gallery_links__thumbnail" %}
+                            <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+                                
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+                                
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "gallery_links__image_1" %}
+                            <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+                                
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+                                
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "gallery_links__image_3" %}
+                            <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+                                
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+                                
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "gallery_links__image_4" %}
+                            <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+                                
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+                                
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+
+
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "gallery_links__image_5" %}
+                            <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+                                
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+                                
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+                        <div class="listing-thumbnail-slider-nav">
+                            <div class="slider-thumbnail-item">
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "gallery_links__image_1" %}
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="slider-thumbnail-item">
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "gallery_links__image_2" %}
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="slider-thumbnail-item">
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "gallery_links__image_3" %}
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="slider-thumbnail-item">
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "gallery_links__image_4" %}
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="slider-thumbnail-item">
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "gallery_links__image_5" %}
+                                <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Price Range In the area Start -->
+                    <div class="section">
+                        <div class="acr-area-price">
+                            {% for i in home %}
+                            {% for key, value in i.items %}
+                            {% if key == "details__price_withunit" %}
+                            <span style="left: 30%">Rs. {{value}}</span>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="acr-area-price-wrapper">
+                                <div class="acr-area-price-min">
+                                    <h5>Rs. 25 Lakhs</h5>
+                                    <span>Lowest</span>
+                                </div>
+                                <h5>Price range in the area</h5>
+                                <div class="acr-area-price-max">
+                                    <h5>Rs. 3 Crore</h5>
+                                    <span>Highest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Price Range In the area End -->
+                    <div class="section section-padding pt-0 acr-listing-features">
+                        <h4>Features</h4>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="listing-feature-wrapper">
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__propertytype" %}
+                                        <i class="flaticon-picture"></i>
+                                        <h6 class="listing-feature-label">Property Type</h6>
+                                        
+                                        <span class="listing-feature-value">{{value}}</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__year_built" %}
+                                        <i class="flaticon-history"></i>
+                                        <h6 class="listing-feature-label">Year Built</h6>
+                                        
+                                        <span class="listing-feature-value">{{value}}</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__pet_friendly" and value == True %}
+                                        <i class="flaticon-bone"></i>
+                                        <h6 class="listing-feature-label">Pet Friendly</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__furnished" and value == True %}
+                                        <i class="flaticon-chair"></i>
+                                        <h6 class="listing-feature-label">Furnished</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__cooling" and value == True %}
+                                        <i class="flaticon-fan"></i>
+                                        <h6 class="listing-feature-label">Cooling</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="listing-feature-wrapper">
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__property_id" %}
+                                        <i class="flaticon-key"></i>
+                                        <h6 class="listing-feature-label">Property Id</h6>
+                                        
+                                        <span class="listing-feature-value">{{value}}</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__condition" %}
+                                        <i class="flaticon-new"></i>
+                                        <h6 class="listing-feature-label">Condition</h6>
+                                        
+                                        <span class="listing-feature-value">{{value}}</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__yoga_room" and value == True %}
+                                        <i class="flaticon-bathroom"></i>
+                                        <h6 class="listing-feature-label">Yoga Rooms</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__swimming_pool" and value == True %}
+                                        <i class="flaticon-pillow"></i>
+                                        <h6 class="listing-feature-label">Swimming pool</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__badminton_court" and value == True %}
+                                        <i class="flaticon-mailbox"></i>
+                                        <h6 class="listing-feature-label">Badminton Court</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="load-more-features btn-custom-2 light-grey btn-block" name="button">Show More</button>
+                        <div class="hidden-listing-features">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__multipurpose_court" and value == True %}
+                                        <i class="flaticon-ruler"></i>
+                                        <h6 class="listing-feature-label">Multipurpose Hall</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__parking" and value == True %}
+                                        <i class="flaticon-garage"></i>
+                                        <h6 class="listing-feature-label">Parking</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__childs_playarea" and value == True%}
+                                        <i class="flaticon-garage"></i>
+                                        <h6 class="listing-feature-label">Child's Play Area</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__cycling_track" and value == True%}
+                                        <i class="flaticon-garage"></i>
+                                        <h6 class="listing-feature-label">Cycling Track</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__squash_court" and value == True %}
+                                        <i class="flaticon-garage"></i>
+                                        <h6 class="listing-feature-label">Squash Court</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__snooker_table" and value == True %}
+                                        <i class="flaticon-garage"></i>
+                                        <h6 class="listing-feature-label">Snooker Table</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__srcitizen_area" and value == True%}
+                                        <i class="flaticon-ruler"></i>
+                                        <h6 class="listing-feature-label">Sr. Citizen Area</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="listing-feature">
+                                        {% for i in home %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "features__outdoor_gym" and value == True %}
+                                        <i class="flaticon-eye"></i>
+                                        <h6 class="listing-feature-label">Outdoor Gym</h6>
+                                        
+                                        <span class="listing-feature-value">Yes</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section pt-0">
+                        <h4>Property Video</h4>
+                        
+                        {% for i in home %}
+                        {% for key, value in i.items %}
+                        {% if key == "details__video" %}
+                        <div class="embed-responsive embed-responsive-21by9">
+                            <iframe class="embed-responsive-item" src="{{value}}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="section pt-0 acr-listing-history">
+                        <h4>Builder's History</h4>
+                        <div class="accordion with-gap" id="propertyHistory">
+                            <div class="listing-feature">
+                                <i class="flaticon-garage"></i>
+                                <h6 class="listing-feature-label">Sold Projects</h6>
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "details__sold_projects" %}
+                                <span class="listing-feature-value">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="listing-feature">
+                                <i class="flaticon-garage"></i>
+                                <h6 class="listing-feature-label">Completed Projects</h6>
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "details__completed_projects" %}
+                                <span class="listing-feature-value">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="listing-feature">
+                                <i class="flaticon-garage"></i>
+                                <h6 class="listing-feature-label">Ongoing Projects</h6>
+                                {% for i in home %}
+                                {% for key, value in i.items %}
+                                {% if key == "details__ongoing_projects" %}
+                                <span class="listing-feature-value">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="section pt-0">
+                        <h4>Schedule a Tour</h4>
+                        {% if message is not None %}
+                        
+                        <h5>{{message}}</h5>
+                      
+                        {% endif %}
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    {%csrf_token%}
+                                    {{register_form | crispy}}
+                                </div>
+                            {% if message is None %}
+                            <button type="submit" class="btn-custom primary" name="button">Schedule Tour</button>
+                            {% endif %}
+                            </div>
+                            
+                            
+                        </form>
+                    </div>
+                    
+                    {% if len_similar_1 > 0 or len_similar_2 > 0 %}
+                    <!-- Similar Start -->
+                    <div class="section section-padding">
+                        <h4>Similar Listings</h4>
+                        <div class="row">
+                            {% if len_similar_1 > 0 %}
+                            <!-- Listing Start -->
+                            <div class="col-lg-6">
+                                <div class="listing">
+                                    <div class="listing-thumbnail">
+                                        {% for i in home_similar_1 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "gallery_links__thumbnail" and value != None %}
+                                        <a href="{% url 'properties-detail' pk=pk %}"><img src="{{value}}" alt="listing" class="img-responsive fit-imaget"></a>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for i in home_similar_1 %}
+                                        {% for key, value in i.items %}
+                                        <div class="listing-badges">
+                                            <span class="listing-badge featured"> <i class="fas fa-star"></i> </span>
+                                            {% if key == "gallery_links__status" and value != None %}
+                                            <span class="listing-badge pending"> {{value}}</span>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        <div class="listing-controls">
+                                            <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                                            <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="listing-body">
+                                        <div class="listing-author">
+                                            <img src="https://via.placeholder.com/292x300" alt="author">
+                                            <div class="listing-author-body">
+                                                <p> <a href="#">Property Magica</a> </p>
+                                                <span class="listing-date">March 3, 2020</span>
+                                            </div>
+                                            <div class="dropdown options-dropdown">
+                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul>
+                                                        <li> <a href="tel:+918884902800"> <i class="fas fa-phone"></i> Call Agent</a> </li>
+                                                        <li> <a href="mailto:info@propertyplusdecor.com"> <i class="fas fa-envelope"></i> Send Message</a> </li>
+                                                        <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% for i in home_similar_1 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__name" and value != None %}
+                                        <h5 class="listing-title"> <a href="{% url 'properties-detail' pk=pk %}" title="{{value}}">{{value}}</a> </h5>
+                                        {% endif %}
+                                        {%endfor%}
+                                        {%endfor%}
+                                        {% for i in home_similar_1 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__price_withunit" and value != None %}
+                                        <span class="listing-price">Rs. {{value}} <span></span> </span>
+                                        {% endif %}
+                                        {%endfor%}
+                                        {%endfor%}
+                                        {% for i in home_similar_1 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__description" and value != None %}
+                                        <p class="listing-text">{{value}}</p>
+                                        {% endif %}
+                                        {%endfor%}
+                                        {%endfor%}
+                                        <div class="acr-listing-icons">
+                                            <div class="acr-listing-icon" data-toggle="tooltip" title="Beds">
+                                                <i class="flaticon-bedroom"></i>
+                                                {% for i in home_similar_1 %}
+                                                {% for key, value in i.items %}
+                                                {% if key == "details__beds" and value != None %}
+                                                <span class="acr-listing-icon-value">{{value}}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="acr-listing-icon" data-toggle="tooltip" title="Bathrooms">
+                                                <i class="flaticon-bathroom"></i>
+                                                {% for i in home_similar_1 %}
+                                                {% for key, value in i.items %}
+                                                {% if key == "details__bathrooms" and value != None %}
+                                                <span class="acr-listing-icon-value">{{value}}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="acr-listing-icon" data-toggle="tooltip" title="Square Feet">
+                                                <i class="flaticon-ruler"></i>
+                                                {% for i in home_similar_1 %}
+                                                {% for key, value in i.items %}
+                                                {% if key == "details__space" and value != None %}
+                                                <span class="acr-listing-icon-value">{{value}}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="listing-gallery-wrapper">
+                                            {% for i in home_similar_1 %}
+                                            {% for key, value in i.items %}
+                                            {% if key == "id" and value != None %}
+                                            <a href="{% url 'properties-detail' pk=value %}" class="btn-custom btn-sm secondary">View Details</a>
+                                            {% endif %}
+                                            {% endfor %}
+                                            {% endfor %}
+                                            <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Listing End -->
+                            {% endif %}
+                            {% if len_similar_2 > 0 %}
+                            <!-- Listing Start -->
+                            <div class="col-lg-6">
+                                <div class="listing">
+                                    <div class="listing-thumbnail">
+                                        {% for i in home_similar_2 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "gallery_links__thumbnail" and value != None %}
+                                        <a href="{% url 'properties-detail' pk=pk %}"><img src="{{value}}" alt="listing" class="img-responsive fit-imaget"></a>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% endfor %}
+                                        {% for i in home_similar_2 %}
+                                        {% for key, value in i.items %}
+                                        <div class="listing-badges">
+                                            <span class="listing-badge featured"> <i class="fas fa-star"></i> </span>
+                                            {% if key == "gallery_links__status" and value != None %}
+                                            <span class="listing-badge pending"> {{value}}</span>
+                                            {% endif %}
+                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        <div class="listing-controls">
+                                            <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                                            <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="listing-body">
+                                        <div class="listing-author">
+                                            <img src="https://via.placeholder.com/292x300" alt="author">
+                                            <div class="listing-author-body">
+                                                <p> <a href="#">Property Magica</a> </p>
+                                                <span class="listing-date">March 3, 2020</span>
+                                            </div>
+                                            <div class="dropdown options-dropdown">
+                                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <ul>
+                                                        <li> <a href="tel:+918884902800"> <i class="fas fa-phone"></i> Call Agent</a> </li>
+                                                        <li> <a href="mailto:info@propertyplusdecor.com"> <i class="fas fa-envelope"></i> Send Message</a> </li>
+                                                        <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% for i in home_similar_2 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__name" and value != None %}
+                                        <h5 class="listing-title"> <a href="{% url 'properties-detail' pk=pk %}" title="{{value}}">{{value}}</a> </h5>
+                                        {% endif %}
+                                        {%endfor%}
+                                        {%endfor%}
+                                        {% for i in home_similar_2 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__price_withunit" and value != None %}
+                                        <span class="listing-price">Rs. {{value}} <span></span> </span>
+                                        {% endif %}
+                                        {%endfor%}
+                                        {%endfor%}
+                                        {% for i in home_similar_2 %}
+                                        {% for key, value in i.items %}
+                                        {% if key == "details__description" and value != None %}
+                                        <p class="listing-text">{{value}}</p>
+                                        {% endif %}
+                                        {%endfor%}
+                                        {%endfor%}
+                                        <div class="acr-listing-icons">
+                                            <div class="acr-listing-icon" data-toggle="tooltip" title="Beds">
+                                                <i class="flaticon-bedroom"></i>
+                                                {% for i in home_similar_2 %}
+                                                {% for key, value in i.items %}
+                                                {% if key == "details__beds" and value != None %}
+                                                <span class="acr-listing-icon-value">{{value}}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="acr-listing-icon" data-toggle="tooltip" title="Bathrooms">
+                                                <i class="flaticon-bathroom"></i>
+                                                {% for i in home_similar_2 %}
+                                                {% for key, value in i.items %}
+                                                {% if key == "details__bathrooms" and value != None %}
+                                                <span class="acr-listing-icon-value">{{value}}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                            <div class="acr-listing-icon" data-toggle="tooltip" title="Square Feet">
+                                                <i class="flaticon-ruler"></i>
+                                                {% for i in home_similar_2 %}
+                                                {% for key, value in i.items %}
+                                                {% if key == "details__space" and value != None %}
+                                                <span class="acr-listing-icon-value">{{value}}</span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="listing-gallery-wrapper">
+                                            {% for i in home_similar_2 %}
+                                            {% for key, value in i.items %}
+                                            {% if key == "id" and value != None %}
+                                            <a href="{% url 'properties-detail' pk=value %}" class="btn-custom btn-sm secondary">View Details</a>
+                                            {% endif %}
+                                            {% endfor %}
+                                            {% endfor %}
+                                            <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Listing End -->
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                    <!-- Similar End -->
+                    {% endif %}
+                </div>
+                <!-- Listings End -->
+                <!-- Sidebar Start -->
+                <div class="col-lg-4">
+                    <div class="sidebar sticky-sidebar">
+                        <div class="sidebar-widget">
+                            <h5>Schedule a Tour</h5>
+                              {% if message is not None %}
+                          
+                               <h5>{{message}}</h5>
+                        
+                              {% endif %}
+                            
+                            <!-- Contact Start -->
+                            <form method="post">
+                                <div class="form-group">
+                                    {%csrf_token%}
+                                    {{register_form | crispy}}
+
+                                    {% if message is None %}
+                                    <button type="submit" class="btn-custom primary" name="button">Schedule Tour</button>
+                                    {% endif %}
+                            </form>
+                            <!-- Contact End -->
+                        </div>
+                        {% if len_home_recent > 0 %}
+                        <div class="sidebar-widget">
+                            <h5>Recent Listings</h5>
+                            <!-- Listing Start -->
+                            {% for i in home_recent %}
+                            {% for j in i %}
+                            
+                            <div class="listing listing-list">
+                              {% for key, value in j.items %}
+                              {% if key == "gallery_links__thumbnail" and value != None %}
+                                <div class="listing-thumbnail">
+                                    <a href="{% url 'properties-detail' pk=pk %}"><img src="{{value}}" alt="listing" class="img-responsive fit-imagert"></a>
+                                </div>
+                              {% endif %}
+                              {% endfor %}
+
+                                <div class="listing-body">
+                                    {% for key, value in j.items %}
+                                    {% if key == "details__name" and value != None %}
+                                    <h6 class="listing-title"> <a href="{% url 'properties-detail' pk=pk %}" title="{{value}}">{{value}}</a> </h6>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    {% for key, value in j.items %}
+                                    {% if key == "details__mortgage" and value != None %}
+                                    <span class="listing-price">Rs. {{value}}<span>/month</span> </span>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
+                            <!-- Listing End -->
+                            
+                        </div>
+                        {% endif %}
+                        <div class="sidebar-widget">
+                            <h5>Mortgage Calculator</h5>
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Total Amount" name="total" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Down Payment" name="down-p" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Interest Rate" name="interest" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Loan Term" name="loan-term" value="">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="cycle">
+                                        <option value="Daily">Daily</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Yearly">Yearly</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-custom btn-block" name="button">Calculate</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar End -->
+            </div>
+        </div>
+    </div>
+<!-- Footer Start -->
+  <footer class="acr-footer footer-2">
+
+    <!-- Footer Top Start -->
+    <!-- <div class="footer-top">
+      <div class="container">
+        <div class="row footer-btn-wrapper">
+          <div class="col-lg-7 footer-widget">
+            <h4>Download Our App</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+          </div>
+          <div class="col-lg-5 col-md-12 footer-widget">
+            <div class="footer-btn">
+              <a href="#" class="btn-custom-2 grey"> <i class="flaticon-playstore"></i>Google Play</a>
+              <a href="#" class="btn-custom-2 grey"> <i class="flaticon-apple"></i>App Store</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Footer Top End -->
+
+    <!-- Footer Middle Start -->
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 footer-widget">
+                <h5 class="widget-title">Social Connect</h5>        
+                <div class="footer-logo"> <img src="{% static 'img/property_backimg/pndlog.png' %}" alt="" class="img-responsive fit-logo"> </div>
+                <ul class="social-media">
+                    <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                </ul>
+                <!-- <p>Connect with us and get latest updates</p> -->
+                <!-- <br></br> -->
+                
+            </div>
+          <div class="col-lg-2 offset-lg-1 col-sm-4 footer-widget">
+            <h5 class="widget-title">Company</h5>
+            <ul>
+                <li> <a href="{% url 'aboutus' %}">About Us</a> </li>
+                <li> <a href="{% url 'services' %}">Services</a> </li>
+                <li> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-sm-4 footer-widget">
+            <h5 class="widget-title">Properties</h5>
+            <ul>
+                <li> <a href="{% url 'properties' %}">Find Home</a> </li>
+                <li> <a href="{% url 'submit-listing' %}">Submit Listing</a> </li>
+                <li> <a href="{% url 'properties-apartments' %}">Properties Search</a> </li>
+                
+            </ul>
+        </div>
+        <div class="col-lg-2 col-sm-4 footer-widget">
+            <h5 class="widget-title">Interiors</h5>
+            <ul>
+                <li> <a href="{% url 'interiors' %}">Find Designer</a> </li>
+                <li> <a href="{% url 'designs' %}">Search Designs</a> </li>
+                <li> <a href="{% url 'portfolios' %}">View Portfolio</a> </li>
+                
+            </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Middle End -->
+
+    <!-- Footer Bottom Start -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <p class="m-0">&copy; Copyright 2020 - <a href="#">PropertyplusDecor</a> All Rights Reserved.</p>
+          </div>
+          <div class="col-lg-5">
+            <ul>
+                <li> <a href="{% url 'properties' %}">Find a Home</a> </li>
+                <li> <a href="{% url 'legal' %}">Legal Policy</a> </li>
+            </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Bottom End -->
+
+  </footer>
+  <!-- Footer End -->
+    <!-- Vendor Scripts -->
+    <script src="{% static 'js/plugins/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'js/plugins/waypoint.js' %}"></script>
+    <script src="{% static 'js/plugins/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.slimScroll.min.js' %}"></script>
+    <script src="{% static 'js/plugins/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/plugins/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/plugins/slick.min.js' %}"></script>
+    <script src="{% static 'js/plugins/select2.min.js' %}"></script>
+    <!-- Acres Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+{% extends "listing/listing_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<head>
+
+    <style>
+
+    .fit-imaget{
+          width: 100%;
+          object-fit: cover;
+          height: 80px; /* only if you want fixed height */
+          }
+
+    .fit-imagep{
+          width: 100%;
+          object-fit: cover;
+          height: 315px; /* only if you want fixed height */
+          }
+
+    </style>
+
+</head>
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay" style="background-image: url('{% static 'img/property_backimg/banner-3.jpg' %}')" >
+    <div class="container">
+        <div class="subheader-inner">
+            <h1 class="text-white">Properties</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                    <li class="breadcrumb-item"><a href="#">Properties</a></li>
+                    <!-- <li class="breadcrumb-item active" aria-current="page">Listings List</li> -->
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+<!-- Listings Start -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <div class="sidebar sidebar-left">
+                    <div class="sidebar-widget">
+                        <div class="acr-collapse-trigger acr-custom-chevron-wrapper">
+                            <h5>Filter Listings</h5>
+                            <div class="acr-custom-chevron">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="acr-collapsable">
+                            <div class="acr-filter-form">
+                                <form method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+
+                                        {%csrf_token%}
+                                        {{filter_form | crispy}}
+
+                                    </div>
+
+                                    <button type="submit" class="btn-block btn-custom" name="button">Apply filters</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <div class="acr-collapse-trigger acr-custom-chevron-wrapper">
+                            <h5>Recent Listing</h5>
+                            <div class="acr-custom-chevron">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="acr-collapsable">
+                            <!-- Listing Start -->
+                            {% for i in recent %}
+                            <div class="listing listing-list">
+                                {% for key, value in i.items %}
+                                {% if key == "gallery_links" %}
+                                <div class="listing-thumbnail">
+                                    {% for j in value %}
+                                    {% for key1, value1 in j.items %}
+                                    {% if key1 == "thumbnail" %}
+                                    <a href=""><img src="{{value1}}" alt="listing" class="img-responsive fit-imaget"></a>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                {% if key == "details" %}
+                                <div class="listing-body">
+                                    {% for j in value %}
+                                    {% for key1, value1 in j.items %}
+                                    {% if key1 == "name" %}
+                                    <h6 class="listing-title"> <a href="listing-details-v1.html" title="{{value1}}">{{value1}}</a> </h6>
+                                    {% endif%}
+                                    {% if key1 == "price" %}
+                                    <span class="listing-price">Rs.{{value1}} <span></span> </span>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
+                            <!-- Listing End -->
+                              
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <div class="acr-collapse-trigger acr-custom-chevron-wrapper">
+                            <h5>Mortgage Calculator</h5>
+                            <div class="acr-custom-chevron">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="acr-collapsable">
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Total Amount" name="total" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Down Payment" name="down-p" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Interest Rate" name="interest" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Loan Term" name="loan-term" value="">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="cycle">
+                                        <option value="Daily">Daily</option>
+                                        <option value="Monthly">Monthly</option>
+                                        <option value="Yearly">Yearly</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-custom btn-block" name="button">Calculate</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar End -->
+            <!-- Posts Start -->
+            <div class="col-lg-8">
+                <!-- Controls Start -->
+                <div class="acr-global-listing-controls">
+                    <div class="acr-listing-active-filters">
+                        <a href="#">
+                            <div class="close-btn close-dark">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {% for key, value in filter_listing.items %}
+                            {% if key == "location" %}
+                            {{value}}
+                            {% endif %}
+                            {% endfor %}
+                        </a>
+                        
+                        <a href="#">
+                            <div class="close-btn close-dark">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {% for key, value in filter_listing.items %}
+                            {% if key == "status" %}
+                            {{value}}
+                            {% endif %}
+                            {% endfor %}
+                        </a>
+                        <a href="#">
+                            <div class="close-btn close-dark">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {% for key, value in filter_listing.items %}
+                            {% if key == "price_range" %}
+                            {{value}}
+                            {% endif %}
+                            {% endfor %}
+                        </a>
+                        <a href="#">
+                            <div class="close-btn close-dark">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {% for key, value in filter_listing.items %}
+                            {% if key == "beds" %}
+                            {{value}}
+                            {% endif %}
+                            {% endfor %}
+                        </a>
+                        <a href="#">
+                            <div class="close-btn close-dark">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {% for key, value in filter_listing.items %}
+                            {% if key == "bathrooms" %}
+                            {{value}}
+                            {% endif %}
+                            {% endfor %}
+                        </a>
+                        <a href="#">
+                            <div class="close-btn close-dark">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            {% for key, value in filter_listing.items %}
+                            {% if key == "prop_type" %}
+                            {{value}}
+                            {% endif %}
+                            {% endfor %}
+                        </a>
+                    </div>
+                    <div class="acr-toggle-views">
+                        <a href="listing-grid.html" data-toggle="tooltip" title="Grid"><i class="fas fa-th-large"></i></a>
+                        <a href="listing-list.html" class="active" data-toggle="tooltip" title="List"><i class="fas fa-th-list"></i></a>
+                        <a href="listing-map.html" data-toggle="tooltip" title="Map"><i class="fas fa-map"></i></a>
+                    </div>
+                </div>
+                <!-- Controls End -->
+                <!-- Listing Start -->
+                {% for i in home %}
+                <div class="listing listing-list">
+                    {% for key, value in i.items %}
+                    {% if key == "gallery_links" %}
+                    <div class="listing-thumbnail">
+                        {% for j in value %}
+                        {% for key1, value1 in j.items %}
+                        {% if key1 == "thumbnail" %}
+                        <a href=""><img src="{{value1}}" alt="listing" class="img-responsive fit-imagep"></a>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% for j in value %}
+                        {% for key1, value1 in j.items %}
+                        {% if key1 == "status" %}
+                        <div class="listing-badges">
+                            <span class="listing-badge pending">{{value1}}</span>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        <div class="listing-controls">
+                            <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                            <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% for key, value in i.items %}
+                    {% if key == "details" %}
+                    <div class="listing-body">
+                        <div class="listing-author">
+                            <img src="https://via.placeholder.com/292x300" alt="author">
+                            <div class="listing-author-body">
+                                <p> <a href="#">Property Magica</a> </p>
+                                <span class="listing-date">March 3, 2020</span>
+                            </div>
+                            <div class="dropdown options-dropdown">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul>
+                                        <li> <a href="tel:+123456789"> <i class="fas fa-phone"></i> Call Agent</a> </li>
+                                        <li> <a href="mailto:+123456789"> <i class="fas fa-envelope"></i> Send Message</a> </li>
+                                        <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% for j in value %}
+                        {% for key1, value1 in j.items %}
+                        {% if key1 == "name" %}
+                        <h5 class="listing-title"> <a href="listing-details-v1.html" title="{{value1}}">{{value1}}</a> </h5>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% for j in value %}
+                        {% for key1, value1 in j.items %}
+                        {% if key1 == "price" %}
+                        <span class="listing-price">Rs.{{value1}}<span></span> </span>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        {% for j in value %}
+                        {% for key1, value1 in j.items %}
+                        {% if key1 == "description" %}
+                        <p class="listing-text">{{value1}}</p>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        <div class="acr-listing-icons">
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Beds">
+                                <i class="flaticon-bedroom"></i>
+                                {% for j in value %}
+                                {% for key1, value1 in j.items %}
+                                {% if key1 == "beds" %}
+                                <span class="acr-listing-icon-value">{{value1}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Bathrooms">
+                                <i class="flaticon-bathroom"></i>
+                                {% for j in value %}
+                                {% for key1, value1 in j.items %}
+                                {% if key1 == "bathrooms" %}
+                                <span class="acr-listing-icon-value">{{value1}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Square Feet">
+                                <i class="flaticon-ruler"></i>
+                                {% for j in value %}
+                                {% for key1, value1 in j.items %}
+                                {% if key1 == "space" %}
+                                <span class="acr-listing-icon-value">{{value1}}</span>
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="listing-gallery-wrapper">
+                            <a href="" class="btn-custom btn-sm secondary">View Details</a>
+                            <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i> </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <!-- Listing End -->
+                
+                <!-- Pagination Start -->
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#"> <i class="fas fa-chevron-left"></i> </a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#"> <i class="fas fa-chevron-right"></i> </a></li>
+                </ul>
+                <!-- Pagination End -->
+            </div>
+            <!-- Posts End -->
+        </div>
+    </div>
+</div>
+<!-- Listings End -->
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "listing/interiors_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay"
+    style="background-image: url('{% static 'img/property_backimg/livingroom2.jpg' %}')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1 class="text-white">Designer's Portfolios</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                    <li class="breadcrumb-item"><a href="#">Portfolios</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+
+
+<div class="container">
+<div class="acr-filter-form">
+    <form method="post" action="{% url 'portfolios' %}" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {%csrf_token%}
+                    <label>Location: </label>
+                    <select class="acr-select2" name="location">
+                        {% for city in CITY %}
+                        <option value={{city}}>{{city}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {%csrf_token%}
+                    <label>Property: </label>
+                    <select class="acr-select2" name="property">
+                        <option selected value="ANY TYPE">ANY TYPE</option>
+                        <option value="APARTMENT_1BHK">APARTMENT_1BHK</option>
+                        <option value="APARTMENT_2BHK">APARTMENT_2BHK</option>
+                        <option value="APARTMENT_3BHK">APARTMENT_3BHK</option>
+                        <option value="APARTMENT_4BHK">APARTMENT_4BHK</option>
+                        <option value="APARTMENT_5BHK">APARTMENT_5BHK</option>
+                        <option value="VILLA">VILLA</option>
+                        <option value="INDEPENDANT HOUSE">INDEPENDANT HOUSE</option>
+                        <option value="COMMERCIAL">COMMERCIAL</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {%csrf_token%}
+                    <label>Designers: </label>
+                    
+                    <select class="acr-select2" name="designers">
+                        <option selected value="ANY">ANY</option>
+                        {% for designer in DESIGNER %}
+                        <option value={{designer}}>{{designer}}</option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="form-group">
+                    <button type="submit" class="btn-custom btn-block" name="button">Search
+                        </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<!-- <div class="section">
+    <div class="container">
+        <div class="row"> -->
+
+<!-- Listings Start -->
+<div class="section section-padding">
+    <div class="container">
+        <div class="section-title-wrap section-header flex-header">
+            <div class="section-title-text">
+                <!-- <h5 class="custom-primary">Find Your Designer</h5> -->
+                <h2 class="title custom-primary">Find Your Designer</h2>
+            </div>
+            <!-- <a href="listing-map.html" class="btn-custom">View All</a> -->
+        </div>
+        <div class="row">
+            
+            <h3 class="title custom-primary">{{MESSAGE}}</h3>
+        </div>
+    </div>
+</div>
+<!-- Listings End -->
+
+<!-- </div>
+    </div>
+</div> -->
+
+{% endblock %}

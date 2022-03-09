@@ -1,0 +1,218 @@
+{% extends "listing/interiors_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block%}
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay" style="background-image: url('{% static 'img/property_backimg/designs.jpg' %}')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1 class="text-white">Submit Your Review</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                    <li class="breadcrumb-item"><a href="#">Customer Review</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Tab Content Start -->
+            <div class="col-md-10">
+                <form method="post" action="{% url 'portfolios' %}" enctype="multipart/form-data">
+                    <div class="tab-content m-0" id="submitListingTabContent">
+                        <!-- Basic Information Start -->
+                        <div class="tab-pane fade show active" id="basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
+                            <div class="row">
+                                <div class="col-md-10 form-group">
+                                    <label>Customer Name</label>
+                                    <input type="text" class="form-control" placeholder="Designer Name" name="name" value="">
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>Location</label>
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <select class="form-control" name="status">
+                                                    <option value="Karnataka">Karnataka</option>
+                                                    <option value="Living Room">Living Room</option>
+                                                    <option value="Bed Room">Bed Room</option>
+                                                    <option value="Bath Room">Bath Room</option>
+                                                    <option value="Kids Room">Kids Room</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <select class="form-control" name="status">
+                                                    <option value="Bengaluru">Bengaluru</option>
+                                                    <option value="Living Room">Living Room</option>
+                                                    <option value="Bed Room">Bed Room</option>
+                                                    <option value="Bath Room">Bath Room</option>
+                                                    <option value="Kids Room">Kids Room</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Zip">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>Duration</label>
+                                    <input type="text" class="form-control" placeholder="In months .." name="name" value="">
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>Property Type</label>
+                                    <select class="form-control" name="status">
+                                        <option value="Apartment">Apartment (1 BHK)</option>
+                                        <option value="Apartment">Apartment (2 BHK)</option>
+                                        <option value="Apartment">Apartment (3 BHK)</option>
+                                        <option value="Apartment">Apartment (4 BHK)</option>
+                                        <option value="Apartment">Apartment (5 BHK)</option>
+                                        <option value="Villa">Villa</option>
+                                        <option value="Independent House">Independent House</option>
+                                        <option value="Commercial">Commercial</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>PropertyplusDecor Service</label>
+                                    <select class="form-control" name="status">
+                                        <option value="Complete Home Interiors">Complete Home Interiors</option>
+                                        <option value="Essential Interiors">Essential Interiors</option>
+                                        <option value="Modular Kitchen">Modular Kitchen</option>
+                                        <option value="Complete Home Renovation">Complete Home Renovation</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>Price</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rs.</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="price" placeholder="Price ..">
+                                    </div>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>Designer Name</label>
+                                    <input type="text" class="form-control" placeholder="Designer Name" name="name" value="">
+                                </div>
+                                <div class="col-md-10 form-group ">
+                                    <label class="font-weight-bold"></label>
+                                </div>
+                                <div class="col-md-10 form-group ">
+                                    <label class="font-weight-bold">RATE YOUR DESIGNER (0 to 5)</label>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                    <label>Quality of Service</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star1"><label for="star1"></label>
+                                      <input type="radio" id="star2"><label for="star1"></label>
+                                      <input type="radio" id="star3"><label for="star1"></label>
+                                      <input type="radio" id="star4"><label for="star1"></label>
+                                      <input type="radio" id="star5"><label for="star1"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Quality of Material</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star6"><label for="star6"></label>
+                                      <input type="radio" id="star7"><label for="star7"></label>
+                                      <input type="radio" id="star8"><label for="star8"></label>
+                                      <input type="radio" id="star9"><label for="star9"></label>
+                                      <input type="radio" id="star10"><label for="star10"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Timeliness</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star11"><label for="star11"></label>
+                                      <input type="radio" id="star12"><label for="star12"></label>
+                                      <input type="radio" id="star13"><label for="star13"></label>
+                                      <input type="radio" id="star14"><label for="star14"></label>
+                                      <input type="radio" id="star15"><label for="star15"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Price</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star16"><label for="star16"></label>
+                                      <input type="radio" id="star17"><label for="star17"></label>
+                                      <input type="radio" id="star18"><label for="star18"></label>
+                                      <input type="radio" id="star19"><label for="star19"></label>
+                                      <input type="radio" id="star20"><label for="star20"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Communication</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star21"><label for="star21"></label>
+                                      <input type="radio" id="star22"><label for="star22"></label>
+                                      <input type="radio" id="star23"><label for="star23"></label>
+                                      <input type="radio" id="star24"><label for="star24"></label>
+                                      <input type="radio" id="star25"><label for="star25"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Innovative Designs</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star26"><label for="star26"></label>
+                                      <input type="radio" id="star27"><label for="star27"></label>
+                                      <input type="radio" id="star28"><label for="star28"></label>
+                                      <input type="radio" id="star29"><label for="star29"></label>
+                                      <input type="radio" id="star30"><label for="star30"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Unique Designs</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star31"><label for="star31"></label>
+                                      <input type="radio" id="star32"><label for="star32"></label>
+                                      <input type="radio" id="star33"><label for="star33"></label>
+                                      <input type="radio" id="star34"><label for="star34"></label>
+                                      <input type="radio" id="star35"><label for="star35"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Diverse Designs</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star36"><label for="star36"></label>
+                                      <input type="radio" id="star37"><label for="star37"></label>
+                                      <input type="radio" id="star38"><label for="star38"></label>
+                                      <input type="radio" id="star39"><label for="star39"></label>
+                                      <input type="radio" id="star40"><label for="star40"></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 form-group">
+                                    <label>Warranty</label>
+                                    <div class="rating">
+                                      <input type="radio" id="star41"><label for="star41"></label>
+                                      <input type="radio" id="star42"><label for="star42"></label>
+                                      <input type="radio" id="star43"><label for="star43"></label>
+                                      <input type="radio" id="star44"><label for="star44"></label>
+                                      <input type="radio" id="star45"><label for="star45"></label>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- Basic Information End -->
+                        <button type="submit" class="btn-custom" name="submit">Submit Portfolio</button>
+                        
+                    </div>
+                </form>
+            </div>
+            <!-- Tab Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}

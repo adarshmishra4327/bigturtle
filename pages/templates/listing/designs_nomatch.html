@@ -1,0 +1,97 @@
+{% extends "listing/interiors_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay"
+    style="background-image: url('{% static 'img/property_backimg/livingroom2.jpg' %}')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1 class="text-white">Designer's Designs</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                    <li class="breadcrumb-item"><a href="#">Designs</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+
+<div class="container">
+    <div class="acr-filter-form">
+        <form method="post" action="{% url 'designs' %}" enctype="multipart/form-data">
+            <div><br></div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        {% csrf_token %}
+                        <label>Location: </label>
+                        <select class="acr-select2" name="location">
+                            {% for i in CITY %}
+                            <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+                            
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        {% csrf_token %}
+                        <label>Designers: </label>
+                        <select class="acr-select2" name="designers">
+                            {% for i in DESIGNER %}
+                            <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        {% csrf_token %}
+                        <label>Designs: </label>
+                        <select class="acr-select2" name="designs">
+                            <option value="MODULAR KITCHEN">MODULAR KITCHEN</option>
+                            <option value="LIVING ROOM">LIVING ROOM</option>
+                            <option value="BED ROOM">BED ROOM</option>
+                            <option value="BATHROOM">BATHROOM</option>
+                            <option value="KIDS ROOM">KIDS ROOM</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        <button type="submit" class="btn-custom btn-block" name="button">Search Designs
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Listings Start -->
+<div class="section section-padding">
+    <div class="container">
+        <div class="section-title-wrap section-header flex-header">
+            <div class="section-title-text">
+                <!-- <h5 class="custom-primary">Find Your Designer</h5> -->
+                <h2 class="title custom-primary">Find Your Paradise</h2>
+            </div>
+            <!-- <a href="listing-map.html" class="btn-custom">View All</a> -->
+        </div>
+        <div class="row">
+
+            <!-- Listing Start -->
+            <h3 class="custom-primary">{{MESSAGE}}</h3>
+            <!-- Listing End -->
+
+        </div>
+    </div>
+</div>
+<!-- Listings End -->
+
+{% endblock %}

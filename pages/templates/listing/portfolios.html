@@ -1,0 +1,203 @@
+{% extends "listing/interiors_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay"
+    style="background-image: url('{% static 'img/property_backimg/livingroom2.jpg' %}')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1 class="text-white">Designer's Portfolios</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                    <li class="breadcrumb-item"><a href="#">Portfolios</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+
+
+<div class="container">
+<div class="acr-filter-form">
+    <form method="post" action="{% url 'portfolios' %}" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {%csrf_token%}
+                    <label>Location: </label>
+                    <select class="acr-select2" name="location">
+                        {% for city in CITY %}
+                        <option value={{city}}>{{city}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {%csrf_token%}
+                    <label>Property: </label>
+                    <select class="acr-select2" name="property">
+                        <option selected value="ANY TYPE">ANY TYPE</option>
+                        <option value="APARTMENT_1BHK">APARTMENT_1BHK</option>
+                        <option value="APARTMENT_2BHK">APARTMENT_2BHK</option>
+                        <option value="APARTMENT_3BHK">APARTMENT_3BHK</option>
+                        <option value="APARTMENT_4BHK">APARTMENT_4BHK</option>
+                        <option value="APARTMENT_5BHK">APARTMENT_5BHK</option>
+                        <option value="VILLA">VILLA</option>
+                        <option value="INDEPENDANT HOUSE">INDEPENDANT HOUSE</option>
+                        <option value="COMMERCIAL">COMMERCIAL</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {%csrf_token%}
+                    <label>Designers: </label>
+                    <select class="acr-select2" name="designers">
+                        <option value="ANY">ANY</option>
+                        {% for designer in DESIGNER %}
+                        <option value={{designer}}>{{designer}}</option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="form-group">
+                    <button type="submit" class="btn-custom btn-block" name="button">Search
+                        </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<!-- <div class="section">
+    <div class="container">
+        <div class="row"> -->
+
+<!-- Listings Start -->
+<div class="section section-padding">
+    <div class="container">
+        <div class="section-title-wrap section-header flex-header">
+            <div class="section-title-text">
+                <!-- <h5 class="custom-primary">Find Your Designer</h5> -->
+                <h2 class="title custom-primary">Find Your Designer</h2>
+            </div>
+            <!-- <a href="listing-map.html" class="btn-custom">View All</a> -->
+        </div>
+        <div class="row">
+            {% for portfolio in PORTFOLIOS %}
+            <!-- Listing Start -->
+            <div class="col-lg-4">
+                
+                <div class="listing">
+                    
+                    <div class="listing-thumbnail">
+                        
+                        {% for key, value in portfolio.items %}
+                        {% if key == "thumbnail" %}
+                        <a href={{value}} class="gallery-thumb">
+                            <img src={{value}} alt="post" class="img-responsive fit-imaget"></a>
+                        {% endif %}
+                        {% endfor %}
+                        
+                        <div class="listing-badges">
+                            <!-- <span class="listing-badge featured"> <i class="fas fa-star"></i> </span> -->
+                            {% for key, value in portfolio.items %}
+                            {% if key == "type_of_property" %}
+                            <span class="listing-badge pending">{{value}}</span>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="listing-controls">
+                            <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                            <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="listing-body">
+                        <div class="listing-author">
+                            <!-- <img src="https://via.placeholder.com/292x300" alt="author"> -->
+                            <div class="listing-author-body">
+                                {% for key, value in portfolio.items %}
+                                {% if key == "name" %}
+                                <p> <a href="#">{{value}}</a> </p>
+                                {% endif %}
+                                {% endfor %}
+                                {% for key, value in portfolio.items %}
+                                {% if key == "city_name" %}
+                                <span class="listing-date">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="dropdown options-dropdown">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                        class="fas fa-ellipsis-v"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul>
+                                        <li> <a href="tel:+918884902800"> <i class="fas fa-phone"></i> Call Agent</a>
+                                        </li>
+                                        <li> <a href="mailto:info@propertyplusdecor.com"> <i
+                                                    class="fas fa-envelope"></i> Send Message</a> </li>
+                                        <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book
+                                                Tour</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listing-author"></div>
+                        <!-- <h5 class="listing-title"> <a href="listing-details-v1.html" title="Nebra & Co Designer">Nebra & -->
+                                <!-- Co Designer</a> </h5> -->
+                        <!-- <span class="listing-price">Starts @ Rs. 1 lakh<span></span> </span> -->
+                        <div class="acr-listing-icons">
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Customer Reviews">
+                                <i class='fas fa-star icon-green' style='font-size:20px'></i>
+                                <span class="acr-listing-icon-value">1000</span>
+                            </div>
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Years of Experience">
+                                <i class='fas fa-award icon-green' style='font-size:24px'></i>
+                                <span class="acr-listing-icon-value">20</span>
+                            </div>
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Projects Completed">
+                                <i class='far fa-building icon-green' style='font-size:24px'></i>
+                                <span class="acr-listing-icon-value">100</span>
+                            </div>
+                            <div class="acr-listing-icon" data-toggle="tooltip" title="Avg. Delivery Time (Days)">
+                                <i class='far fa-clock icon-green' style='font-size:24px'></i>
+                                <span class="acr-listing-icon-value">45 </span>
+                            </div>
+
+                        </div>
+                        <div class="listing-author"></div>
+
+                        <div class="listing-gallery-wrapper">
+                        {% for key, value in portfolio.items %}
+                        {% if key == "id" %}
+                        <a href= {% url "designerid" pk=value %} class="btn-custom btn-sm secondary">View
+                                Portfolios</a>
+                        {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Listing End -->
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+<!-- Listings End -->
+
+<!-- </div>
+    </div>
+</div> -->
+
+{% endblock %}

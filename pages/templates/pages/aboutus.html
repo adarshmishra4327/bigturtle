@@ -1,0 +1,57 @@
+{% extends "listing/listing_base.html" %}
+{% load static %}
+{% block body_block %}
+
+<!-- Subheader Start -->
+  <div class="subheader bg-cover bg-center dark-overlay" style="background-image: url('{% static 'img/property_backimg/aboutus2.jpg' %}')">
+    <div class="container">
+      <div class="subheader-inner">
+        <h1 class="text-white">About Us</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'properties' %}"> <i class="fas fa-home"></i> </a></li>
+            <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+<!-- Subheader End -->
+
+  <!-- About Section Start -->
+  <div class="section">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 mb-lg-30 acr-dots-wrapper acr-single-img-wrapper">
+          <img src="{% static 'img/property_backimg/aboutus.jpg' %}" alt="img">
+          <div class="acr-dots"></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="section-title-wrap mr-lg-30">
+            <h5 class="custom-primary">About Us</h5>
+            <h2 class="title">We provide state of the art real estate service</h2>
+            <p class="subtitle">
+              We are a team of experts to serve you end to end from Property Search to Property Decor with best of options available in marketplace. 
+            </p>
+            <p class="subtitle">
+              At PropertyPlusDecor, you will get products and services of best players of real estate and interior designers. This is an one stop solution for all your property related needs which includes search of property, interior designing of the property & maintenance of your property thereafter. We have a tie-up with leading builders and interior designer companies to serve you with multiple options at your doorsteps.
+            </p>
+            <a href="{% url 'interiors' %}" class="btn-custom">Browse Interiors</a>
+            <a href="{% url 'properties' %}" class="btn-custom">Browse Properties</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- About Section End -->
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Testimonials End -->
+
+{% endblock %}

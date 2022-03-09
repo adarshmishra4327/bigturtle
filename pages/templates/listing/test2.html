@@ -1,0 +1,124 @@
+<h1>HOME</h1>
+
+{% for i in home %}
+
+{%for j in i%}
+{%for k in j %}
+{{k}}
+{% endfor %}
+{% endfor %}
+<h2>**********************************************</h2>
+
+{% endfor %}
+
+
+
+
+
+<h2>**********************************************</h2>
+
+
+{% for key, value in property_type.items %}
+
+{{key}}
+{{value}}
+
+
+{% endfor %}
+
+<h2>**********************************************</h2>
+
+{% for i in home %}
+
+{{i}}
+
+{% for key, value in i.items %}
+
+{% if key == "gallery_links"%}
+
+{{key}}
+
+{% for j in value %}
+
+{{j}}
+
+{% for key1, value1 in j.items %}
+
+{% if key1 == "thumbnail" %}
+{{key1}}
+<a href=""><img src="{{value1}}" alt="listing" class="img-responsive fit-imaget"></a>
+{% endif %}
+
+<h4>AAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h4>
+
+{% endfor %}
+
+{% endfor %}
+
+{% endif %}
+<h3>YYYYYYYYYYYYYYYYYYYYYYYYYYYYY</h3>
+
+{% endfor %}
+<h2>TTTTTTTTTTTTTTTTTTT</h2>
+
+
+{% endfor %}
+
+
+<h2>**********************************************</h2>
+<div class="col-lg-3 col-md-6">
+    <div class="form-group acr-custom-select">
+
+      <!-- {{filter_form}} -->
+
+      {% for field in filter_form %}
+      <!-- {{field.label}} -->
+      {%if field.label == "Location" %}
+      {{field.label}}
+      {% for option in field %}
+        {{option}}
+      {% endfor%}
+      {% endif %}
+      {% endfor %}
+
+    <h2>**********************************************</h2>
+
+<div class="acr-filter-form">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="form-group acr-custom-select">
+                    {% for field in filter_form %}
+                    <label>{{field.label}}: </label>
+                    <select class="acr-select2" name="status">
+                        {% for option in field %}
+                        <option value="">{{option}}</option>
+                        {% endfor %}
+                    </select>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+  
+    
+        
+
+
+        <!-- {% for field in filter_form %} -->
+        <!-- {% if field.label == "Location" %} -->
+        <!-- <label>{{field}}: </label> -->
+        <!-- {% endif %} -->
+        <!-- {% endfor %} -->
+        <!-- <select class="acr-select2" name="location">
+            {% for field in filter_form %}
+            {% if field.label == "Location" %}
+            {% for option in field %}
+            <option value="{{option}}">{{option}}</option>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </select> -->
+    </div>
+</div>

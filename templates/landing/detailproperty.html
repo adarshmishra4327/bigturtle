@@ -1,0 +1,265 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+      <div class="container-fluid">
+        <a class="navbar-brand">Property Overview</a>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    {% for list in data %}
+    <div class="container-fluid mt-5">
+      <b><p style="font-size: 30px">Property Overview</p> </b>
+      <img
+        height="500"
+        width="100%"
+        src="http://127.0.0.1:8000/media/{{ list.fields.thumbnail}}"
+        alt=""
+      />
+    </div>
+
+    <div class="container-fluid mt-5">
+      <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-around">
+              <img
+                height="200"
+                width="100"
+                src="http://127.0.0.1:8000/media/{{ list.fields.image1}}"
+                class="d-block w-100 mr-2"
+                alt="..."
+              />
+              <img
+                height="200"
+                width="100"
+                src="http://127.0.0.1:8000/media/{{ list.fields.image2}}"
+                class="d-block w-100 mr-2"
+                alt="..."
+              />
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="d-flex justify-content-around">
+              <img
+                height="200"
+                width="100"
+                src="http://127.0.0.1:8000/media/{{ list.fields.image4}}"
+                class="d-block w-100 mr-2"
+                alt="..."
+              />
+              <img
+                height="200"
+                width="100"
+                src="http://127.0.0.1:8000/media/{{ list.fields.image3}}"
+                class="d-block w-100 mr-2"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr
+      style="
+        height: 2px;
+        border-width: 0;
+        color: lawngreen;
+        background-color: rebeccapurple;
+        margin-left: 10px;
+        margin-right: 10px;
+      "
+    />
+    <div class="container-fluid mt-5">
+      <b><p style="font-size: 30px">Property Detailes</p> </b>
+
+      <div class="card" style="background-color: #bbff99">
+        <div class="card-header bg-info">Featured</div>
+        <div class="card-body">
+          <div class="d-flex justify-content-around">
+            <b><p style="font-size: 20px">Price: {{list.fields.price}}</p></b>
+            <b
+              ><p style="font-size: 20px">
+                Buildername: {{list.fields.buildername}}
+              </p></b
+            >
+          </div>
+          <div class="d-flex justify-content-around">
+            <b
+              ><p style="font-size: 20px">
+                Property Type: {{list.fields.propertytype}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Property Address: {{list.fields.propertyaddress}}
+              </p></b
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+      <b><p style="font-size: 30px">Property Amenities</p> </b>
+
+      <div class="card" style="background-color: #bbff99">
+        <div class="card-header bg-info">Featured</div>
+        <div class="card-body">
+          <div class="d-flex justify-content-around">
+            <b
+              ><p style="font-size: 20px">
+                Swimmingpool: {{list.fields.swimmingpool}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Parking: {{list.fields.visitingparking}}
+              </p></b
+            >
+            <b><p style="font-size: 20px">CCTV: {{list.fields.cctv}}</p></b>
+            <b
+              ><p style="font-size: 20px">
+                Playground: {{list.fields.playground}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Furnished: {{list.fields.furnished}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Cooling: {{list.fields.cooling}}
+              </p></b
+            >
+          </div>
+
+          <div class="d-flex justify-content-around">
+            <b
+              ><p style="font-size: 20px">
+                Electricity: {{list.fields.electricity}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Modularkitchen: {{list.fields.modularkitchen}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                watersupply: {{list.fields.watersupply}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Lpgpipesupply: {{list.fields.lpgpipesupply}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Kidsplayarea: {{list.fields.kidsplayarea}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Powerbackup: {{list.fields.powerbackup}}
+              </p></b
+            >
+          </div>
+
+          <div class="d-flex justify-content-around">
+            <b><p style="font-size: 20px">CCTV: {{list.fields.cctv}}</p></b>
+            <b
+              ><p style="font-size: 20px">
+                Hospitals: {{list.fields.hospitals}}
+              </p></b
+            >
+            <b><p style="font-size: 20px">Mall: {{list.fields.mall}}</p></b>
+          </div>
+          <div class="d-flex justify-content-around">
+            <b><p style="font-size: 20px">Temple: {{list.fields.temple}}</p></b>
+            <b
+              ><p style="font-size: 20px">
+                Highways: {{list.fields.highways}}
+              </p></b
+            >
+            <b
+              ><p style="font-size: 20px">
+                Railwaystation: {{list.fields.railwaystation}}
+              </p></b
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+      <div class="d-flex justify-content-center">
+        <b><p style="font-size: 30px">Property Video</p> </b>
+      </div>
+
+      <div class="container-fluid mt-5 d-flex justify-content-center mb-5">
+        <iframe
+          width="560"
+          height="315"
+          src="{{list.fields.propertyvideo}}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    {% endfor %}
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'landingpage/vendors/@popperjs/popper.min.js' %}"></script>
+    <script src="{% static 'landingpage/vendors/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'landingpage/vendors/is/is.min.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="{% static 'landingpage/vendors/fontawesome/all.min.js' %}"></script>
+    <script src="{% static 'landingpage/assets/js/theme.js' %}"></script>
+  </body>
+</html>

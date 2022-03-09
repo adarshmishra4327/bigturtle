@@ -1,0 +1,87 @@
+{% extends "listing/listing_base.html" %}
+{% load static %}
+{% block body_block%}
+
+<!-- Subheader Start -->
+  <div class="subheader bg-cover bg-center dark-overlay" style="background-image: url('{% static 'img/property_backimg/aboutus2.jpg' %}')">
+    <div class="container">
+      <div class="subheader-inner">
+        <h1 class="text-white">Our Services</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+            <li class="breadcrumb-item active" aria-current="page">Services</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- Subheader End -->
+
+  <!-- About Section Start -->
+  <div class="section">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 mb-lg-30 acr-dots-wrapper acr-single-img-wrapper">
+          <img src="{% static 'img/property_backimg/aboutus.jpg' %}" alt="img">
+          <div class="acr-dots"></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="section-title-wrap mr-lg-30">
+            <h5 class="custom-primary">Get Started</h5>
+            <h2 class="title">Property Search & Consultations</h2>
+            <!-- <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p> -->
+            <ul class="acr-list">
+              <li>Search your Property</li>
+              <li>Visit your Property</li>
+              <li>Buy your Property with Best deal</li>
+              <li>Your Review & Feedback</li>
+            </ul>
+            <a href="{% url 'properties' %}" class="btn-custom">Browse Properties</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- About Section End -->
+
+  <!-- About Section Start -->
+  <div class="section">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6 mb-lg-30 acr-dots-wrapper acr-single-img-wrapper">
+          <img src="{% static 'img/property_backimg/services2.jpg' %}" alt="img">
+          <div class="acr-dots"></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="section-title-wrap mr-lg-30">
+            <!-- <h5 class="custom-primary">Get Started</h5> -->
+            <h2 class="title">Interior Design Consultations</h2>
+            <!-- <p class="subtitle">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p> -->
+            <ul class="acr-list">
+              <li>Share your requirements with our team</li>
+              <li>Choose your designs</li>
+              <li>Choose your interior designers</li>
+              <li>Get 3 Best Quotes from selected designers</li>
+              <li>Discuss & Finalize your Designs</li>
+              <li>Close the deal with Best Price</li>
+              <li>Completion of Interior Designs</li>
+              <li>Review & Feedback</li>
+            </ul>
+            <a href="{% url 'interiors' %}" class="btn-custom">Browse Designers</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- About Section End -->
+
+{% endblock %}

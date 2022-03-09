@@ -1,0 +1,320 @@
+{% extends "listing/interiors_base.html" %}
+{% load static %}
+
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay" style="background-image: url('{% static 'img/property_backimg/designs.jpg' %}')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1 class="text-white">List Your Portfolios</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                    <li class="breadcrumb-item"><a href="#">Listing Portfolios</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Subheader End -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <!-- Tabs Start -->
+            <!-- <div class="col-md-4">
+          <ul class="nav nav-tabs tab-cards" id="submitListingTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="basic-info-tab" data-toggle="tab" href="#basic-info" role="tab" aria-controls="basic-info" aria-selected="true"> <span>01</span> Basic Information</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="gallery-tab" data-toggle="tab" href="#gallery" role="tab" aria-controls="gallery" aria-selected="false"><span>02</span> Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="false"><span>03</span> Location</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="features-tab" data-toggle="tab" href="#features" role="tab" aria-controls="features" aria-selected="false"><span>04</span> Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false"><span>05</span> Details</a>
+            </li>
+          </ul>
+        </div> -->
+            <!-- Tabs End -->
+            <!-- Tab Content Start -->
+            <div class="col-md-10">
+              <h3 class="custom-primary">{{message}}</h3>
+              <form action="/data" method='get'>
+
+                <input type="text">
+                <input type="file">
+              </form>
+                <form method="get" action="/data" enctype="multipart/form-data">
+                  
+                    <div class="tab-content m-0" id="submitListingTabContent">
+                        <!-- Basic Information Start -->
+                        <div class="tab-pane fade show active" id="basic-info" role="tabpanel" aria-labelledby="basic-info-tab">
+                            <div class="row">
+                              <div class="col-md-10 form-group">
+                              
+                                  <label>About Designer</label>
+                                  <input type="text" class="form-control" placeholder="About Designer" name="aboutyourself" value="">
+                              </div>
+                                <div class="col-md-10 form-group">
+                                 
+                                    <label>Designer Id</label>
+                                    <input type="text" class="form-control" placeholder="GST ID" name="designerid" value="">
+                                </div>
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>Designer Name</label>
+                                    <input type="text" class="form-control" placeholder="Designer Name" name="designername" value="">
+                                </div>
+                                <!-- <div class="col-md-10 form-group">
+                                  {% csrf_token %}
+                                    <label>About Designer</label>
+                                    <input type="text" class="form-control" placeholder="About Designer" name="aboutdesigner" value="">
+                                </div> -->
+                                <!-- <div class="col-md-10 form-group">
+                                  {% csrf_token %}
+                                    <label>Experience</label>
+                                    <input type="text" class="form-control" placeholder="Designer's Experience" name="experience" value="">
+                                </div> -->
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>Customer Name</label>
+                                    <input type="text" class="form-control" placeholder="Customer Name" name="customername" value="">
+                                </div>
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>Location</label>
+                                    <select class="form-control" name="location">
+                                        {% for i in CITY %}
+                                        <option value="{{i}}">{{i}}</option>
+                                       
+                                        
+                                        <!-- <option value="Living Room">Living Room</option>
+                                        <option value="Bed Room">Bed Room</option>
+                                        <option value="Bath Room">Bath Room</option>
+                                        <option value="Kids Room">Kids Room</option> -->
+                                    </select>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>Property Type</label>
+                                    <select class="form-control" name="propertytype">
+                                        <option value="APARTMENT_1BHK">APARTMENT_1BHK</option>
+                                        <option value="APARTMENT_2BHK">APARTMENT_2BHK</option>
+                                        <option value="APARTMENT_3BHK">APARTMENT_3BHK</option>
+                                        <option value="APARTMENT_4BHK">APARTMENT_4BHK</option>
+                                        <option value="APARTMENT_5BHK">APARTMENT_5BHK</option>
+                                        <option value="VILLA">VILLA</option>
+                                        <option value="INDEPENDANT HOUSE">INDEPENDANT HOUSE</option>
+                                        <option value="COMMERCIAL">COMMERCIAL</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>PropertyplusDecor Service</label>
+                                    <select class="form-control" name="service">
+                                        <option value="MODULAR KITCHEN">MODULAR KITCHEN</option>
+                                        <option value="COMPLETE HOME DESIGN">COMPLETE HOME DESIGN</option>
+                                        <option value="RENOVATION COMPLETE HOME">RENOVATION COMPLETE HOME</option>
+                                        <option value="RENOVATION KITCHEN">RENOVATION KITCHEN</option>
+                                        <option value="ESSENTIAL FURNITURES">ESSENTIAL FURNITURES</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>Duration in Days</label>
+                                    <input type="text" class="form-control" placeholder="Duration in Days" name="duration" value="">
+                                </div>
+                                <div class="col-md-10 form-group">
+                                 
+                                    <label>Price in Lakhs</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Rs.</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="price" placeholder="Price in Lakhs..">
+                                    </div>
+                                </div>
+                                <div class="col-md-10 form-group">
+                                  
+                                    <label>Interior's Video</label>
+                                    <input type="text" class="form-control" placeholder="Interior's Video" name="video" value="">
+                                </div>
+                                <div class="col-md-10 form-group">
+                                <!-- Gallery Start -->
+                                <!-- <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+                                  <div class="form-group"> -->
+
+                                  
+                                    
+                                  <!-- </div>
+                                  
+                                    <span class="acr-form-notice">*You can upload up to 5 images for your listing</span>
+                                    <span class="acr-form-notice">*Listing images should be atleast 620x480 in dimensions for better customer experience</span>
+                                </div> -->
+                              </div>
+                                <!-- Gallery End -->
+                              </div>
+                            </div>
+                        </div>
+                        <!-- Basic Information End -->
+                        <button type="submit" class="btn-custom" name="submit">Submit Portfolio</button>
+                       
+                        <!-- Gallery Start -->
+                        <!-- <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+                <div class="form-group">
+                  <label>Property Thumbnail</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="propertyThumbnail">
+                    <label class="custom-file-label" for="propertyThumbnail">Choose file</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Property Gallery</label>
+                  <div id="acrListingGallery" class="dropzone">
+                    <div class="dropzone-msg dz-message needsclick">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                      <h5 class="dropzone-msg-title">Drop files here or click to upload.</h5>
+                      <span class="dropzone-msg-desc">This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.</span>
+                    </div>
+                  </div>
+                  <span class="acr-form-notice">*You can upload up to 5 images for your listing</span>
+                  <span class="acr-form-notice">*Listing images should be atleast 620x480 in dimensions</span>
+                </div>
+              </div> -->
+                        <!-- Gallery End -->
+                        <!-- Location Start -->
+                        <!-- <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+                <div class="form-group submit-listing-map">
+                  <div id="map"></div>
+                </div>
+                <div class="form-group">
+                  <span class="acr-form-notice">Drag and drop the marker to identify your <b>Latitude</b> and <b>Longitude</b> </span>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label>Full Address</label>
+                    <input type="text" name="address" class="form-control" placeholder="Full Address" value="">
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <label>Region</label>
+                    <select class="form-control" name="region">
+                      <option value="Connecticut">Connecticut</option>
+                      <option value="Washington DC">Washington DC</option>
+                      <option value="Los Angelas">Los Angelas</option>
+                      <option value="Missouri">Missouri</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Longitude</label>
+                    <input type="text" name="lng" id="lngVal" class="form-control" placeholder="Longitude" value="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Latitude</label>
+                    <input type="text" name="lat" id="latVal" class="form-control" placeholder="Latitude" value="">
+                  </div>
+                </div>
+              </div> -->
+                        <!-- Location End -->
+                        <!-- Features Start -->
+                        <!-- <div class="tab-pane fade" id="features" role="tabpanel" aria-labelledby="features-tab">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <label class="acr-listing-feature">
+                      <input type="checkbox" name="feature1" value="">
+                      <i class="acr-feature-check fas fa-check"></i>
+                      <i class="acr-listing-feature-icon flaticon-bone"></i>
+                      Pet Friendly
+                    </label>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <label class="acr-listing-feature">
+                      <input type="checkbox" name="feature2" value="">
+                      <i class="acr-feature-check fas fa-check"></i>
+                      <i class="acr-listing-feature-icon flaticon-chair"></i>
+                      Furnished
+                    </label>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <label class="acr-listing-feature">
+                      <input type="checkbox" name="feature3" value="">
+                      <i class="acr-feature-check fas fa-check"></i>
+                      <i class="acr-listing-feature-icon flaticon-fan"></i>
+                      Cooling
+                    </label>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <label class="acr-listing-feature">
+                      <input type="checkbox" name="feature4" value="">
+                      <i class="acr-feature-check fas fa-check"></i>
+                      <i class="acr-listing-feature-icon flaticon-garage"></i>
+                      Parking
+                    </label>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <label class="acr-listing-feature">
+                      <input type="checkbox" name="feature5" value="">
+                      <i class="acr-feature-check fas fa-check"></i>
+                      <i class="acr-listing-feature-icon flaticon-mailbox"></i>
+                      Mailbox
+                    </label>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6">
+                    <label class="acr-listing-feature">
+                      <input type="checkbox" name="feature6" value="">
+                      <i class="acr-feature-check fas fa-check"></i>
+                      <i class="acr-listing-feature-icon flaticon-eye"></i>
+                      City View
+                    </label>
+                  </div>
+                </div>
+              </div> -->
+                        <!-- Features End -->
+                        <!-- Details Start -->
+                        <!-- <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <label>Property ID</label>
+                    <input type="text" class="form-control" placeholder="Property ID" name="id" value="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Beds</label>
+                    <input type="text" class="form-control" placeholder="Number of Beds" name="beds" value="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Bathrooms</label>
+                    <input type="text" class="form-control" placeholder="Number of Bathrooms" name="baths" value="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Condition</label>
+                    <input type="text" class="form-control" placeholder="Property Condition" name="condition" value="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Year Built</label>
+                    <input type="text" class="form-control" placeholder="Property Year Built" name="built" value="">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label>Neighborhood</label>
+                    <input type="text" class="form-control" placeholder="Property Neighborhood" name="neighborhood" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="termsAndConditions">
+                    <label class="custom-control-label" for="termsAndConditions">I Agree to the terms & Conditions of Property Submission</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn-custom" name="submit">Submit Listing</button>
+              </div> -->
+                        <!-- Details End -->
+                    </div>
+                </form>
+            </div>
+            <!-- Tab Content End -->
+        </div>
+    </div>
+</div>
+{% endblock %}

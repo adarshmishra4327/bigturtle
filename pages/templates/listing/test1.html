@@ -1,0 +1,14 @@
+<h1> Complete Home Information </h1>
+{% for i in home %}
+{% for j in i %}
+{% for key, value in j.items %}
+{% if key == "location__City" %}
+{{value}}
+{% endif %}
+{% if key == "details__description" %}
+{{value}}
+{% endif %}
+{% endfor %}
+<h4>**********************************************</h4>
+{% endfor %}
+{% endfor %}

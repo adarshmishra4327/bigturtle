@@ -1,0 +1,1003 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyplusDecor </title>
+    <!-- Vendor Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/plugins/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/select2.min.css' %}">
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/all.min.css' %}">
+    <!-- Acres Style sheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/primary-skin.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/misc/favicon.ico' %}">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+        .fit-imaget {
+            width: 100%;
+            object-fit: cover;
+            height: 190px;
+            /* only if you want fixed height */
+        }
+
+        .icon-green {
+            color: rgba(1, 187, 188, .6);
+        }
+
+        .fit-imagep {
+            width: 100%;
+            object-fit: cover;
+            height: 310px;
+            /* only if you want fixed height */
+        }
+
+        .fit-imageint {
+            width: 100%;
+            object-fit: cover;
+            height: 450px;
+            /* only if you want fixed height */
+        }
+
+        .fit-imagebed {
+            width: 100%;
+            object-fit: cover;
+            height: 210px;
+            /* only if you want fixed height */
+        }
+
+        .fit-imagert {
+            width: 100%;
+            object-fit: cover;
+            height: 90px;
+            /* only if you want fixed height */
+        }
+
+        .fit-imagegt {
+            width: 100%;
+            object-fit: cover;
+            height: 400px;
+            /* only if you want fixed height */
+        }
+
+        .fit-imagegb {
+            width: 100%;
+            object-fit: cover;
+            height: 90px;
+            /* only if you want fixed height */
+        }
+
+        .fit-logo {
+            width: 100%;
+            object-fit: cover;
+            height: 60px;
+            /* only if you want fixed height */
+        }
+
+        .fit-imagep {
+            width: 100%;
+            object-fit: cover;
+            height: 310px;
+            /* only if you want fixed height */
+        }
+
+        .text-white {
+            color: #FFF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="acr-preloader">
+        <div class="acr-preloader-inner">
+            <div class="lds-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Aside (Mobile Navigation) -->
+    <aside class="main-aside">
+        <div class="aside-title">
+            <div class="aside-controls aside-trigger">
+                <h4>Menu</h4>
+                <div class="close-btn close-dark">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="aside-scroll">
+            <ul>
+                <!-- Pages Start -->
+                <li class="menu-section-title">Pages</li>
+                <li class="menu-item menu-item-has-children">
+                    <a href=#> <i class="flaticon-home"></i> Home</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href={% url 'interiors' %}>Interiors</a> </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> <i class="flaticon-home"></i> Designs</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href={% url 'kitchendesigns' %}>Modular Kitchen</a> </li>
+                        <li class="menu-item"> <a href={% url 'livingroomdesigns' %}>Living Room</a> </li>
+                        <li class="menu-item"> <a href={% url 'bedroomdesigns' %}>Bed Room</a> </li>
+                        <li class="menu-item"> <a href={% url 'bathroomdesigns' %}>Bath Room</a> </li>
+                        <li class="menu-item"> <a href={% url 'kidsroomdesigns' %}>Kids Room</a> </li>
+                    </ul>
+                </li>
+
+                <!-- <li class="menu-item ">
+                    <a href="#"> <i class="flaticon-checklist"></i>How it works?</a>
+                </li>
+                <li class="menu-item ">
+                    <a href={% url 'customerreview' %}><i class="flaticon-writing-1"></i>Customer Reviews</a>
+                </li> -->
+                <li class="menu-item ">
+                    <a href="#"><i class="far fa-calendar-check"></i>Book Online Consultation</a>
+                </li>
+            </ul>
+            </li>
+            <!-- <li class="menu-item menu-item-has-children">
+                <a href="#"> <i class="flaticon-layers"></i> Pages</a>
+                
+            </li> -->
+            <!-- <li class="menu-item menu-item-has-children">
+                <a href="#"> <i class="flaticon-list"></i> Listings</a>
+                <ul class="submenu">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="listing-map.html">Listings Archive</a>
+                        <ul class="submenu">
+                            <li class="menu-item"> <a href="listing-grid.html">Grid View</a> </li>
+                            <li class="menu-item"> <a href="listing-list.html">List View</a> </li>
+                            <li class="menu-item"> <a href="listing-map.html">Map View</a> </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                        <a href="listing-details-v1.html">Listing Details</a>
+                        <ul class="submenu">
+                            <li class="menu-item"> <a href="listing-details-v1.html">Listing Details v1</a> </li>
+                            <li class="menu-item"> <a href="listing-details-v2.html">Listing Details v2</a> </li>
+                            <li class="menu-item"> <a href="listing-details-v3.html">Listing Details v3</a> </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"> <a href="submit-listing.html">Book Online Consultation</a> </li>
+                    <li class="menu-item"> <a href="compare-listings.html">Compare Listings</a> </li>
+                </ul>
+            </li> -->
+            <!-- <li class="menu-item menu-item-has-children">
+                <a href="agent-archive.html"> <i class="flaticon-headset"></i> Agents</a>
+                <ul class="submenu">
+                    <li class="menu-item"> <a href="agent-archive.html">Agents Archive</a> </li>
+                    <li class="menu-item"> <a href="agent-details.html">Agent Details</a> </li>
+                    <li class="menu-item menu-item-has-children">
+                        <a href="profile.html">Agent Profile</a>
+                        <ul class="submenu">
+                            <li class="menu-item"> <a href="profile.html">My Account</a> </li>
+                            <li class="menu-item"> <a href="profile-listings.html">My Listings</a> </li>
+                            <li class="menu-item"> <a href="profile-saved-listings.html">Saved Listings</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li> -->
+            <!-- Pages End -->
+            <!-- Social Media Start -->
+            <li class="menu-section-title">Get Social</li>
+            <li class="menu-item"> <a href="#"> <i class="flaticon-facebook"></i>Facebook</a> </li>
+            <li class="menu-item"> <a href="#"> <i class="flaticon-linkedin"></i> Linkedin </a> </li>
+            <li class="menu-item"> <a href="#"> <i class="flaticon-twitter"></i> Twitter </a> </li>
+            <li class="menu-item"> <a href="#"> <i class="flaticon-instagram"></i> Instagram </a> </li>
+            <!-- Social Media End -->
+            </ul>
+        </div>
+    </aside>
+    <div class="aside-overlay aside-trigger"></div>
+    <!-- Header Start -->
+    <header class="main-header can-sticky header-fw header-1">
+        <nav class="navbar">
+            <!-- Logo -->
+            <a class="navbar-brand" href=""> <img src="{% static 'img/property_backimg/logo.jpg' %}" alt="logo"
+                    class="img-responsive fit-logo"> </a>
+            <!-- Menu -->
+            <ul class="navbar-nav">
+                <li class="menu-item menu-item-has-children">
+                    <a href={% url 'interiors' %}>Home</a>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#">Designs</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href={% url 'kitchendesigns' %}>Modular Kitchen</a> </li>
+                        <li class="menu-item"> <a href={% url 'livingroomdesigns' %}>Living Room</a> </li>
+                        <li class="menu-item"> <a href={% url 'bedroomdesigns' %}>Bed Room</a> </li>
+                        <li class="menu-item"> <a href={% url 'bathroomdesigns' %}>Bath Room</a> </li>
+                        <li class="menu-item"> <a href={% url 'kidsroomdesigns' %}>Kids Room</a> </li>
+                    </ul>
+                </li>
+
+                <!-- <li class="menu-item menu-item-has-children">
+                    <a href="#">How it works?</a>
+                </li> -->
+                <!-- <li class="menu-item menu-item-has-children">
+                    <a href={% url 'customerreview' %}>Customer Reviews</a>
+                </li> -->
+                <li class="menu-item menu-item-has-children mega-menu-wrapper">
+                    <a href="#">Pages</a>
+                    <ul class="submenu">
+                        <li>
+                            <!-- <img src="https://via.placeholder.com/500x884" alt="img"> -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Company</h5>
+                                            <a href="{% url 'aboutus' %}">About Us</a>
+                                            <a href="{% url 'services' %}">Services</a>
+                                            <a href="{% url 'contactus' %}">Contact Us</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Properties</h5>
+                                            <a href="{% url 'properties' %}">Find Home</a>
+                                            <a href="{% url 'submit-listing' %}">Submit Listing</a>
+                                            <a href="{% url 'properties-apartments' %}">Properties</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Interiors</h5>
+                                            <a href={% url 'interiors' %}>Find Designers</a>
+                                            <a href={% url 'designs' %}>Search Designs</a>
+                                            <a href={% url 'portfolios' %}>View Portfolios</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Partner with Us</h5>
+                                            <a href={% url 'submit-listing' %}>Register your Property</a>
+                                            <a href={% url 'listingportfolio' %}>Interiors Business Registration</a>
+                                            <a href={% url 'listingportfolio' %}>List Portfolios</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li class="menu-item menu-item-has-children">
+                    <a href="#">Listings</a>
+                    <ul class="submenu">
+                        <li class="menu-item menu-item-has-children">
+                            <a href="listing-map.html">Listings Archive</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="listing-grid.html">Grid View</a> </li>
+                                <li class="menu-item"> <a href="listing-list.html">List View</a> </li>
+                                <li class="menu-item"> <a href="listing-map.html">Map View</a> </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="listing-details-v1.html">Listing Details</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="listing-details-v1.html">Listing Details v1</a> </li>
+                                <li class="menu-item"> <a href="listing-details-v2.html">Listing Details v2</a> </li>
+                                <li class="menu-item"> <a href="listing-details-v3.html">Listing Details v3</a> </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"> <a href="submit-listing.html">Submit Listing</a> </li>
+                        <li class="menu-item"> <a href="compare-listings.html">Compare Listings</a> </li>
+                    </ul>
+                </li> -->
+            </ul>
+            <div class="header-controls">
+                <ul class="header-controls-inner d-none d-lg-flex">
+                    <li>
+                        <a href="{% url 'bookfreeconsultation' %}" class="btn-custom primary">Book Online Consultation
+                        </a>
+                    </li>
+                </ul>
+                <!-- Toggler -->
+                <div class="aside-toggler aside-trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+    <!-- Banner Start -->
+    {% for key, value in PORTFOLIOS.items %}
+    {% if key == "thumbnail" %}
+    <div class="banner banner-1 bg-cover bg-center" style="background-image: url({{value}})">
+        {% endif %}
+        {% endfor %}
+        <div class="container">
+            <div class="banner-item">
+                <div class="banner-inner">
+                    <div class="banner-text">
+
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "name" %}
+                        <h1 class="title text-white">{{value}}</h1>
+                        {% endif %}
+                        {% endfor %}
+                        <p class="subtitle text-white">10,000+ Designs to choose from ...</p>
+
+                    </div>
+                    <!-- Icons Start -->
+
+
+                    <!-- <div class="section-title-wrap section-header">
+                <h5 class="custom-primary">Our Moto</h5>
+                <h2 class="title">Why Nebra & Co ?</h2>
+            </div> -->
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="acr-infographic-item">
+                                <i class='fas fa-award icon-green' style='font-size:40px white'></i>
+                                <div class="acr-infographic-item-body" data-toggle="tooltip"
+                                    title="Years of Experience">
+                                    <h5 class="text-white">20 Years</h5>
+                                    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="acr-infographic-item">
+                                <i class="flaticon-apartment"></i>
+                                <div class="acr-infographic-item-body" data-toggle="tooltip" title="Projects Completed">
+                                    <h5 class="text-white">100 Projects</h5>
+                                    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="acr-infographic-item">
+                                <i class='fas fa-star icon-green' style='font-size:40px'></i>
+                                <div class="acr-infographic-item-body" data-toggle="tooltip"
+                                    title="1000+ Customer Reviews">
+                                    <h5 class="text-white">9.0 Avg. Rating</h5>
+                                    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="acr-infographic-item">
+                                <i class='far fa-check-circle icon-green' style='font-size:40px'></i>
+                                <div class="acr-infographic-item-body" data-toggle="tooltip" title="Warranty">
+                                    <h5 class="text-white">10 Years</h5>
+                                    <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Icons End -->
+                    <!-- <div class="acr-filter-form">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="form-group acr-custom-select">
+                                        <label>Location: </label>
+                                        <select class="acr-select2" name="location">
+                                            <option value="" label="Location"></option>
+                                            <option value="*">Any Location</option>
+                                            <option value="California, CA">California, CA</option>
+                                            <option value="Lawndale, CA">Lawndale, CA</option>
+                                            <option value="Stroudsburg, PA">Stroudsburg, PA</option>
+                                            <option selected value="West Roxbury, MA">West Roxbury, MA</option>
+                                            <option value="Ponte Vedra Beach, FL">Ponte Vedra Beach, FL</option>
+                                            <option value="Fort Worth, TX">Fort Worth, TX</option>
+                                            <option value="Willingboro, NJ">Willingboro, NJ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="form-group acr-custom-select">
+                                        <label>Property: </label>
+                                        <select class="acr-select2" name="status">
+                                            <option value="" label="Status"></option>
+                                            <option selected value="*">Any Type</option>
+                                            <option value="Apartment:1 BHK">Apartment:1 BHK</option>
+                                            <option value="Apartment:2 BHK">Apartment:2 BHK</option>
+                                            <option value="Apartment:3 BHK">Apartment:3 BHK</option>
+                                            <option value="Apartment:4 BHK">Apartment:4 BHK</option>
+                                            <option value="Apartment:5 BHK">Apartment:5 BHK</option>
+                                            <option value="Villa">Villa</option>
+                                            <option value="Independent House">Independent House</option>
+                                            <option value="Commercial">Commercial</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="form-group acr-custom-select">
+                                        <label>Filter By: </label>
+                                        <select class="acr-select2" name="price">
+                                    
+                                            <option value="Designs">Designs</option>
+                                            <option value="Designers">Designers</option>
+                                            <option value="Portfolios">Portfolios</option>
+        
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-6">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn-custom btn-block" name="button">Search listings</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+    <!-- Icons Start -->
+    <div class="section section-padding infographics-3">
+        <div class="container">
+
+            <!-- Content Start -->
+            <div class="listing-content">
+                <div class="section-title-wrap section-header flex-header">
+                    <div class="section-title-text">
+                        <h5 class="custom-primary">Portfolio Overview</h5>
+                        <h2 class="title">Portfolio Gallery</h2>
+                    </div>
+                    <!-- <a href="{% url 'designs' %}" class="btn-custom">View All</a> -->
+                </div>
+                <!-- <h4>Portfolio Overview</h4> -->
+                {% for key, value in PORTFOLIOS.items %}
+                {% if key == "aboutyourself" %}
+                <p>
+                    {{value}}
+                </p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <!-- Content End -->
+            <div class="listing-thumbnail">
+                <div class="listing-thumbnail-slider-main">
+                    {% for key, value in PORTFOLIOS.items %}
+                    {% if key == "thumbnail" %}
+                    <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for key, value in PORTFOLIOS.items %}
+                    {% if key == "image_1" %}
+                    <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for key, value in PORTFOLIOS.items %}
+                    {% if key == "image_2" %}
+                    <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for key, value in PORTFOLIOS.items %}
+                    {% if key == "image_3" %}
+                    <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for key, value in PORTFOLIOS.items %}
+                    {% if key == "image_4" %}
+                    <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for key, value in PORTFOLIOS.items %}
+                    {% if key == "image_5" %}
+                    <a href="{{value}}" class="slider-thumbnail-item gallery-thumb">
+
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegt">
+
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+                <div class="listing-thumbnail-slider-nav">
+                    <div class="slider-thumbnail-item">
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "thumbnail" %}
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="slider-thumbnail-item">
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "image_1" %}
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="slider-thumbnail-item">
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "image_2" %}
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="slider-thumbnail-item">
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "image_3" %}
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="slider-thumbnail-item">
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "image_4" %}
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="slider-thumbnail-item">
+                        {% for key, value in PORTFOLIOS.items %}
+                        {% if key == "image_5" %}
+                        <img src="{{value}}" alt="listing" class="img-responsive fit-imagegb">
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="row">
+                <div class="col-lg-3">
+                    <div class="acr-infographic-item">
+                        <i class='fas fa-award icon-green' style='font-size:40px'></i>
+                        <div class="acr-infographic-item-body" data-toggle="tooltip" title="Years of Experience">
+                            <h5 class="text-white" >20 Years</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="acr-infographic-item">
+                        <i class="flaticon-apartment"></i>
+                        <div class="acr-infographic-item-body" data-toggle="tooltip" title="Projects Completed">
+                            <h5>100 Projects</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="acr-infographic-item">
+                        <i class='fas fa-star icon-green' style='font-size:40px'></i>
+                        <div class="acr-infographic-item-body" data-toggle="tooltip" title="1000+ Customer Reviews">
+                            <h5>9.0 Avg. Rating</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="acr-infographic-item">
+                        <i class='far fa-check-circle icon-green' style='font-size:40px'></i>
+                        <div class="acr-infographic-item-body" data-toggle="tooltip" title="Warranty">
+                            <h5>10 Years</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Icons End -->
+    <div class="section section-padding">
+        <div class="container">
+
+            <div class="section-title-wrap section-header flex-header">
+                <div class="section-title-text">
+                    <h5 class="custom-primary">Portfolio Overview</h5>
+                    <h2 class="title">Portfolio Video</h2>
+                </div>
+                <!-- <a href="{% url 'designs' %}" class="btn-custom">View All</a> -->
+            </div>
+
+            <div class="section pt-0">
+                <!-- <h4>Property Video</h4> -->
+
+                {% for key, value in PORTFOLIOS.items %}
+                {% if key == "video" %}
+                <div class="embed-responsive embed-responsive-21by9">
+                    <iframe class="embed-responsive-item" src="{{value}}" allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Listings Start -->
+    <div class="section section-padding">
+        <div class="container">
+
+            <div class="section-title-wrap section-header flex-header">
+                <div class="section-title-text">
+                    <h5 class="custom-primary">Find Your Paradise</h5>
+                    <h2 class="title">Browse by Design</h2>
+                </div>
+                <a href="{% url 'designs' %}" class="btn-custom">View All</a>
+            </div>
+            <div class="row">
+                {% for design in DESIGNS %}
+                <!-- Listing Start -->
+                <div class="col-lg-4">
+                    <div class="listing">
+                        <div class="listing-thumbnail">
+                            {% for key, value in design.items %}
+                            {% if key == "design_image" %}
+                            <a href={{value}} class="gallery-thumb"><img src={{value}} alt="post"
+                                    class="img-responsive fit-imaget"></a>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="listing-badges">
+                                {% for key, value in design.items %}
+                                {% if key == "design_type" %}
+                                <span class="listing-badge pending">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="listing-controls">
+                                <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                                <!-- <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a> -->
+                            </div>
+                        </div>
+
+                        <div class="listing-body">
+                            <div class="listing-author">
+                                <!-- <img src="https://via.placeholder.com/292x300" alt="author"> -->
+                                <div class="listing-author-body">
+                                    {% for key, value in design.items %}
+                                    {% if key == "design_id" %}
+                                    <p> <a href="">{{value}}</a> </p>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    <!-- <span class="listing-date">Whitefield, Bangalore</span> -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Listing End -->
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Listings End -->
+    {% for portfolio in PORTFOLIOS_ALL %}
+    <!-- Listings Start -->
+    <div class="section section-padding">
+        <div class="container">
+            <div class="section-title-wrap section-header flex-header">
+                <div class="section-title-text">
+                    <h5 class="custom-primary">Find Your Portfolio</h5>
+                    {% for key, value in portfolio.items %}
+                    {% if key == "name" %}
+                    <h2 class="title">{{value}} Portfolios</h2>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <a href="{% url 'portfolios' %}" class="btn-custom">View All</a>
+            </div>
+            <div class="row">
+                <!-- Listing Start -->
+                <div class="col-lg-4">
+                    <div class="listing">
+                        <div class="listing-thumbnail">
+                            {% for key, value in portfolio.items %}
+                            {% if key == "thumbnail" %}
+                            <a href={{value}} class="gallery-thumb"><img src={{value}} alt="listing"
+                                    class="img-responsive fit-imaget"></a>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="listing-badges">
+
+                                {% for key, value in portfolio.items %}
+                                {% if key == "type_of_property" %}
+                                <span class="listing-badge pending">{{value}}</span>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="listing-controls">
+                                <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                                <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="listing-body">
+                            <div class="listing-author">
+
+                                <div class="listing-author-body">
+                                    {% for key, value in portfolio.items %}
+                                    {% if key == "name" %}
+                                    <p> <a href="">{{value}}</a> </p>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    {% for key, value in portfolio.items %}
+                                    {% if key == "city_name" %}
+                                    <span class="listing-date">{{value}}</span>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="dropdown options-dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                            class="fas fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <ul>
+                                            <li> <a href="tel:+918884902800"> <i class="fas fa-phone"></i> Call
+                                                    Agent</a> </li>
+                                            <li> <a href="mailto:info@propertyplusdecor.com"> <i
+                                                        class="fas fa-envelope"></i> Send Message</a> </li>
+                                            <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book
+                                                    Tour</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="listing-author"></div>
+                            <!-- <h5 class="listing-title"> <a href="listing-details-v1.html" title="Complete Home Design">Nebra & Co Designer</a> </h5> -->
+                            <!-- <span class="listing-price">Starts @ Rs. 1 lakh<span></span> </span> -->
+                            <div class="acr-listing-icons">
+                                <div class="acr-listing-icon" data-toggle="tooltip" title="Modular Kitchen">
+                                    <i class='fas fa-utensils icon-green' style='font-size:20px'></i>
+                                    <span class="acr-listing-icon-value">1</span>
+                                </div>
+                                <div class="acr-listing-icon" data-toggle="tooltip" title="Living Room">
+                                    <i class='fas fa-couch icon-green' style='font-size:20px'></i>
+                                    <span class="acr-listing-icon-value">2</span>
+                                </div>
+                                <div class="acr-listing-icon" data-toggle="tooltip" title="Bedroom">
+                                    <i class='fas fas fa-bed icon-green' style='font-size:24px'></i>
+                                    <span class="acr-listing-icon-value">2</span>
+                                </div>
+                                <div class="acr-listing-icon" data-toggle="tooltip" title="Modular Bathroom">
+                                    <i class='far fas fa-shower icon-green' style='font-size:24px'></i>
+                                    <span class="acr-listing-icon-value">2</span>
+                                </div>
+                                <div class="acr-listing-icon" data-toggle="tooltip" title="Avg. Delivery Time (Days)">
+                                    <i class='far fa-clock icon-green' style='font-size:24px'></i>
+                                    <span class="acr-listing-icon-value">45 </span>
+                                </div>
+                            </div>
+                            <div class="listing-author"></div>
+
+                            <div class="listing-gallery-wrapper">
+                                {% for key, value in portfolio.items %}
+                                {% if key == "id" %}
+                                <a href={% url "designerid" pk=value %} class="btn-custom btn-sm secondary">View
+                                    Portfolios</a>
+                                {% endif %}
+                                {% endfor %}
+                                <!-- <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i> </a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing End -->
+
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- Listings End -->
+    <!-- CTA Start -->
+    <!-- <div class="section cta-banner" style="background-image: url('https://via.placeholder.com/1920x1280')">
+        <div class="container">
+            <div class="cta cta-3">
+                <div class="row">
+                    <div class="col-lg-6 mb-lg-30">
+                        <div class="section-title-wrap">
+                            <h5 class="custom-primary">Find a Home</h5>
+                            <h2 class="title">Build Your Family</h2>
+                            <p class="subtitle">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </p>
+                            <a href="listing-map.html" class="btn-custom">Browse Listings</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 infographics-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="acr-infographic-item">
+                                    <i class="flaticon-house"></i>
+                                    <div class="acr-infographic-item-body">
+                                        <h5>Residential</h5>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="acr-infographic-item">
+                                    <i class="flaticon-villa"></i>
+                                    <div class="acr-infographic-item-body">
+                                        <h5>Villas</h5>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="acr-infographic-item">
+                                    <i class="flaticon-apartment"></i>
+                                    <div class="acr-infographic-item-body">
+                                        <h5>Apartments</h5>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="acr-infographic-item">
+                                    <i class="flaticon-beach-house"></i>
+                                    <div class="acr-infographic-item-body">
+                                        <h5>Beach House</h5>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- CTA End -->
+
+    <!-- Footer Start -->
+    <footer class="acr-footer footer-2">
+        <!-- Footer Top Start -->
+        <!-- <div class="footer-top">
+            <div class="container">
+                <div class="row footer-btn-wrapper">
+                    <div class="col-lg-7 footer-widget">
+                        <h4>Download Our App</h4>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </p>
+                    </div>
+                    <div class="col-lg-5 col-md-12 footer-widget">
+                        <div class="footer-btn">
+                            <a href="#" class="btn-custom-2 grey"> <i class="flaticon-playstore"></i>Google Play</a>
+                            <a href="#" class="btn-custom-2 grey"> <i class="flaticon-apple"></i>App Store</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Footer Top End -->
+        <!-- Footer Middle Start -->
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 footer-widget">
+                        <h5 class="widget-title">Social Connect</h5>
+                        <div class="footer-logo"> <img src="{% static 'img/property_backimg/logo.jpg' %}" alt=""
+                                class="img-responsive fit-logo"> </div>
+                        <ul class="social-media">
+                            <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                            <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                            <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                            <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                        </ul>
+                        <!-- <p>Connect with us and get latest updates</p> -->
+                        <!-- <br></br> -->
+
+                    </div>
+
+                    <div class="col-lg-2 offset-lg-1 col-sm-4 footer-widget">
+                        <h5 class="widget-title">Company</h5>
+                        <ul>
+                            <li> <a href="{% url 'aboutus' %}">About Us</a> </li>
+                            <li> <a href="{% url 'services' %}">Services</a> </li>
+                            <li> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 footer-widget">
+                        <h5 class="widget-title">Properties</h5>
+                        <ul>
+                            <li> <a href="{% url 'properties' %}">Find Home</a> </li>
+                            <li> <a href="{% url 'submit-listing' %}">Submit Listing</a> </li>
+                            <li> <a href="{% url 'properties-apartments' %}">Properties Search</a> </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 footer-widget">
+                        <h5 class="widget-title">Interiors</h5>
+                        <ul>
+                            <li> <a href="{% url 'interiors' %}">Find Designer</a> </li>
+                            <li> <a href="{% url 'designs' %}">Search Designs</a> </li>
+                            <li> <a href="{% url 'portfolios' %}">View Portfolio</a> </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Middle End -->
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="m-0">&copy; Copyright 2020 - <a href="#">PropertyplusDecor</a> All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li> <a href="{% url 'properties' %}">Find a Home</a> </li>
+                            <li> <a href="{% url 'legal' %}">Legal Policy</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->
+        <!-- Vendor Scripts -->
+        <script src="{% static 'js/plugins/jquery-3.4.1.min.js' %}"></script>
+        <script src="{% static 'js/plugins/popper.min.js' %}"></script>
+        <script src="{% static 'js/plugins/waypoint.js' %}"></script>
+        <script src="{% static 'js/plugins/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery.slimScroll.min.js' %}"></script>
+        <script src="{% static 'js/plugins/imagesloaded.min.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery.steps.min.js' %}"></script>
+        <script src="{% static 'js/plugins/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'js/plugins/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/plugins/slick.min.js' %}"></script>
+        <script src="{% static 'js/plugins/select2.min.js' %}"></script>
+        <!-- Acres Scripts -->
+        <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

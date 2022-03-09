@@ -1,0 +1,598 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyplusDecor</title>
+    <!-- Vendor Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/plugins/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/select2.min.css' %}">
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/all.min.css' %}">
+    <!-- Acres Style sheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/primary-skin.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/misc/favicon.ico' %}">
+    <style>
+        .fit-imaget{
+          width: 100%;
+          object-fit: cover;
+          height: 190px; /* only if you want fixed height */
+          }
+
+      .fit-imagep{
+            width: 100%;
+            object-fit: cover;
+            height: 310px; /* only if you want fixed height */
+            }
+        .fit-logo{
+          width: 100%;
+          object-fit: cover;
+          height: 60px; /* only if you want fixed height */
+          }
+
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="acr-preloader">
+        <div class="acr-preloader-inner">
+            <div class="lds-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+    <!-- Aside (Mobile Navigation) -->
+    <aside class="main-aside">
+        <div class="aside-title">
+            <div class="aside-controls aside-trigger">
+                <h4>Menu</h4>
+                <div class="close-btn close-dark">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="aside-scroll">
+            <ul>
+                <!-- Pages Start -->
+                <li class="menu-section-title">Pages</li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="{% url 'properties' %}"> <i class="flaticon-home"></i> Home</a>
+                    <ul class="submenu">
+                        
+                        <li class="menu-item"> <a href="{% url 'properties' %}">Home</a> </li>
+                        
+                    </ul>
+                </li>
+                
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> <i class="flaticon-layers"></i> Pages</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="{% url 'aboutus' %}">About Us</a> </li>
+                        <li class="menu-item"> <a href="{% url 'services' %}">Services</a> </li>
+                        <!-- <li class="menu-item"> <a href="{% url 'faq' %}">FAQ</a> </li> -->
+                        <!-- <li class="menu-item"> <a href="{% url 'pricing' %}">Pricing</a> </li> -->
+                        <li class="menu-item"> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+                        <!-- <li class="menu-item"> <a href="{% url 'login' %}">Login</a> </li>
+                        <li class="menu-item"> <a href="{% url 'register' %}">Register</a> </li>
+                        <li class="menu-item"> <a href="{% url 'legal' %}">Legal</a> </li> -->
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"><i class="flaticon-list"></i>Properties</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="{% url 'properties-apartments' %}">Apartments</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-villas' %}">Villas</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-residential' %}">Residential</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-duplex' %}">Duplex</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-commercial' %}">Commercial</a> </li>
+                        <li class="menu-item"> <a href="{% url 'properties-plots' %}">Plots</a> </li>
+
+                        <a href="{% url 'submit-listing' %}" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
+                    </ul>
+                </li>
+                
+                
+                <!-- Pages End -->
+                <!-- Social Media Start -->
+                <li class="menu-section-title">Get Social</li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-facebook"></i>Facebook</a> </li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-linkedin"></i> Linkedin </a> </li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-twitter"></i> Twitter </a> </li>
+                <li class="menu-item"> <a href="#"> <i class="flaticon-instagram"></i> Instagram </a> </li>
+                <!-- Social Media End -->
+            </ul>
+        </div>
+    </aside>
+    <div class="aside-overlay aside-trigger"></div>
+    <!-- Header Start -->
+    <header class="main-header header-fw can-sticky">
+        <!-- Top Header Start -->
+        <div class="top-header">
+            <div class="container">
+                <div class="top-header-inner">
+                    <ul class="social-media">
+                        <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                    </ul>
+                    <ul class="top-header-nav">
+                        <li> <a href="{% url 'login' %}"> Login</a> </li>
+                        <li>or</li>
+                        <li> <a href="{% url 'register' %}"> Signup</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Top Header End -->
+        <nav class="navbar">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html"> <img src="{% static 'img/property_backimg/logo.png' %}" alt="logo" class="img-responsive fit-logo"> </a>
+                <!-- Menu -->
+                <ul class="navbar-nav">
+                    <li class="menu-item menu-item-has-children">
+                        <a href="{% url 'properties' %}">Home</a>
+                        <ul class="submenu">
+                            
+                            <li class="menu-item"> <a href="{% url 'properties' %}">Home</a> </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item menu-item-has-children mega-menu-wrapper">
+                        <a href="#">Pages</a>
+                        <ul class="submenu">
+                            <li>
+                                <!-- <img src="https://via.placeholder.com/500x884" alt="img"> -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <div class="mega-menu-item">
+                                                <h5>Company</h5>
+                                                <a href="{% url 'aboutus' %}">About Us</a>
+                                                <a href="{% url 'services' %}">Services</a>
+                                                <a href="{% url 'contactus' %}">Contact Us</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="mega-menu-item">
+                                                <h5>Properties</h5>
+                                                <a href="{% url 'properties' %}">Find Home</a>
+                                                <a href="{% url 'submit-listing' %}">Submit Listing</a>
+                                                <a href="{% url 'properties-apartments' %}">Properties</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="mega-menu-item">
+                                                <h5>Interiors</h5>
+                                                <a href={% url 'interiors' %}>Find Designers</a>
+                                                <a href={% url 'designs' %}>Search Designs</a>
+                                                <a href={% url 'portfolios' %}>View Portfolios</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="mega-menu-item">
+                                                <h5>Partner with Us</h5>
+                                                <a href={% url 'submit-listing' %}>Register your Property</a>
+                                                <a href={% url 'listingportfolio' %}>Interiors Business Registration</a>
+                                                <a href={% url 'listingportfolio' %}>List Portfolios</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#">Properties</a>
+                        <ul class="submenu">
+                            
+                            <li class="menu-item"> <a href="{% url 'properties-apartments' %}">Apartments</a> </li>
+                            <li class="menu-item"> <a href="{% url 'properties-villas' %}">Villas</a> </li>
+                            <li class="menu-item"> <a href="{% url 'properties-residential' %}">Residential</a> </li>
+                            <li class="menu-item"> <a href="{% url 'properties-duplex' %}">Duplex</a> </li>
+                            <li class="menu-item"> <a href="{% url 'properties-commercial' %}">Commercial</a> </li>
+                            <li class="menu-item"> <a href="{% url 'properties-plots' %}">Plots</a> </li>
+                            
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <div class="header-controls">
+                    <ul class="header-controls-inner d-none d-lg-flex">
+                        <li>
+                            <a href="{% url 'submit-listing' %}" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
+                        </li>
+                    </ul>
+                    <!-- Toggler -->
+                    <div class="aside-toggler aside-trigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
+    <!-- Subheader Start -->
+    <div class="subheader bg-cover bg-center dark-overlay" style="background-image: url('{% static 'img/property_backimg/banner-3.jpg' %}')">
+        <div class="container">
+            <div class="subheader-inner">
+                <h1 class="text-white">{{property_type}}</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+                        <li class="breadcrumb-item"><a href="#">Properties/{{property_type}}</a></li>
+                        <!-- <li class="breadcrumb-item active" aria-current="page">Listings List</li> -->
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Subheader End -->
+    <!-- <div class="listing-map-wrapper"> -->
+    <!-- Listings Start -->
+    <!-- <div class="listing-main-wrapper"> -->
+    <!-- Filter Start -->
+    <div class="acr-filter-form">
+        <div class="acr-filter-form-header">
+            <h4>Filter</h4>
+            <div class="close-btn close-dark filter-trigger">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        <label>Location: </label>
+                        <select class="acr-select2" name="location">
+                            <option value="" label="Location"></option>
+                            {% for field in filter_form %}
+                            {%if field.label == "Location" %}
+                            {% for option in field %}
+                            <option value="">{{option}}</option>
+                            {% endfor%}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        <label>Status: </label>
+                        <select class="acr-select2" name="status">
+                            <option value="" label="Status"></option>
+                            {% for field in filter_form %}
+                            {% if field.label == "Status" %}
+                            {% for option in field %}
+                            <option value="">{{option}}</option>
+                            {% endfor%}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group acr-custom-select">
+                        <label>Price Range: </label>
+                        <select class="acr-select2" name="price">
+                            <option value="" label="Price Range"></option>
+                            {% for field in filter_form %}
+                            {% if field.label == "Price Range" %}
+                            {% for option in field %}
+                            <option value="">{{option}}</option>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="acr-custom-select form-group">
+                        <label>Builder: </label>
+                        <select class="acr-select2" name="builder">
+                            <option value="" label="Beds"></option>
+                            {% for field in filter_form %}
+                            {%if field.label == "Builder" %}
+                            {% for option in field %}
+                            <option value="">{{option}}</option>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="acr-custom-select form-group">
+                        <label>Sort By: </label>
+                        <select class="acr-select2" name="sort">
+                            <option value="" label="Bathrooms"></option>
+                            {% for field in filter_form %}
+                            {%if field.label == "Sort By" %}
+                            {% for option in field %}
+                            <option value="">{{option}}</option>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="acr-custom-select form-group">
+                        <label>Type: </label>
+                        <select class="acr-select2" name="type">
+                            <option value="" label="Type"></option>
+                            {% for field in filter_form %}
+                            {%if field.label == "Property Type" %}
+                            {% for option in field %}
+                            <option value="">{{option}}</option>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="submit-btn col-lg-12 col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn-custom secondary btn-block" name="button">Search listings</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="acr-listing-filter-wrapper">
+        <div class="row">
+            
+            <div class="col-lg-6 form-group text-left">
+                <button type="button" class="btn-custom-2 light-grey filter-trigger" name="button">Advanced Search</button>
+            </div>
+        </div>
+    </div>
+    <!-- Filter End -->
+    
+    <div class="row">
+        {% for i in home %}
+        <!-- Listing Start -->
+        <div class="col-lg-4">
+            <div class="listing">
+                <div class="listing-thumbnail">
+                    {% for key, value in i.items %}
+                    {% if key == "gallery_links__thumbnail" and value != None %}
+                    <a href="listing-details-v1.html"><img src="{{value}}" alt="listing" class="img-responsive fit-imaget"></a>
+                    {% endif %}
+                    {% endfor %}
+                    {% for key, value in i.items %}
+                    <div class="listing-badges">
+                        <span class="listing-badge featured"> <i class="fas fa-star"></i> </span>
+                        {% if key == "gallery_links__status" and value != None %}
+                        <span class="listing-badge pending"> {{value}}</span>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <div class="listing-controls">
+                        <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                        <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                    </div>
+                </div>
+                <div class="listing-body">
+                    <div class="listing-author">
+                        <img src="https://via.placeholder.com/292x300" alt="author">
+                        <div class="listing-author-body">
+                            <p> <a href="#">PropertyplusDecor</a> </p>
+                            <span class="listing-date">{{property_type}}</span>
+                        </div>
+                        <div class="dropdown options-dropdown">
+                            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <ul>
+                                    <li> <a href="tel:+918884902800"> <i class="fas fa-phone"></i> Call Agent</a> </li>
+                                    <li> <a href="mailto:info@propertyplusdecor.com"> <i class="fas fa-envelope"></i> Send Message</a> </li>
+                                    <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% for key, value in i.items %}
+                    {% if key == "details__name" and value != None %}
+                    <h5 class="listing-title"> <a href="listing-details-v1.html" title="{{value}}">{{value}}</a> </h5>
+                    {% endif %}
+                    {%endfor%}
+                    {% for key, value in i.items %}
+                    {% if key == "details__price_withunit" and value != None %}
+                    <span class="listing-price">Rs. {{value}} <span></span> </span>
+                    {% endif %}
+                    {% endfor %}
+                    {% for key, value in i.items %}
+                    {% if key == "details__description" and value != None %}
+                    <p class="listing-text">{{value}}</p>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="acr-listing-icons">
+                        <div class="acr-listing-icon" data-toggle="tooltip" title="Beds">
+                            <i class="flaticon-bedroom"></i>
+                            {% for key, value in i.items %}
+                            {% if key == "details__beds" and value != None %}
+                            <span class="acr-listing-icon-value">{{value}}</span>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="acr-listing-icon" data-toggle="tooltip" title="Bathrooms">
+                            <i class="flaticon-bathroom"></i>
+                            {% for key, value in i.items %}
+                            {% if key == "details__bathrooms" and value != None %}
+                            <span class="acr-listing-icon-value">{{value}}</span>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="acr-listing-icon" data-toggle="tooltip" title="Square Feet">
+                            <i class="flaticon-ruler"></i>
+                            {% for key, value in i.items %}
+                            {% if key == "details__space" and value != None %}
+                            <span class="acr-listing-icon-value">{{value}}</span>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="listing-gallery-wrapper">
+                        {% for key, value in i.items %}
+                        {% if key == "id" and value != None %}
+                        <a href="{% url 'properties-detail' pk=value %}" class="btn-custom btn-sm secondary">View Details</a>
+                        {% endif %}
+                        {% endfor %}
+                        <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Listing End -->
+        {% endfor %}
+        
+        <!-- Pagination Start -->
+        <div class="col-lg-12">
+            <ul class="pagination">
+
+                {% if page_minus > 0 %}
+
+                <li class="page-item"><a class="page-link" href="http://www.propertyplusdecor.com/{{property_type}}/apartments/?page={{page_minus}}">Previous</a></li>
+                {% endif %}
+                
+                {% if page_plus > 0 %}
+                <li class="page-item"><a class="page-link" href="http://www.propertyplusdecor.com/{{property_type}}/?page={{page_plus}}"> Next </a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-lg-8">
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- Listings End -->
+    <!-- Map Start -->
+    <!-- <div class="listing-map">
+      <div id="map"></div>
+    </div> -->
+    <!-- Map End -->
+    <!-- </div> -->
+    <!-- Footer Start -->
+    <footer class="acr-footer footer-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 footer-widget">
+                    <h5 class="widget-title">Social Connect</h5>        
+                    <div class="footer-logo"> <img src="{% static 'img/property_backimg/logo.jpg' %}" alt="" class="img-responsive fit-logo"> </div>
+                    <ul class="social-media">
+                        <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                    </ul>
+                    <!-- <p>Connect with us and get latest updates</p> -->
+                    <!-- <br></br> -->
+                    
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-sm-4 footer-widget">
+                    <h5 class="widget-title">Company</h5>
+                    <ul>
+                        <li> <a href="{% url 'aboutus' %}">About Us</a> </li>
+                        <li> <a href="{% url 'services' %}">Services</a> </li>
+                        <li> <a href="{% url 'contactus' %}">Contact Us</a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-4 footer-widget">
+                    <h5 class="widget-title">Properties</h5>
+                    <ul>
+                        <li> <a href="{% url 'properties' %}">Find Home</a> </li>
+                        <li> <a href="{% url 'submit-listing' %}">Submit Listing</a> </li>
+                        <li> <a href="{% url 'properties-apartments' %}">Properties Search</a> </li>
+                        
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-sm-4 footer-widget">
+                    <h5 class="widget-title">Interiors</h5>
+                    <ul>
+                        <li> <a href="{% url 'interiors' %}">Find Designer</a> </li>
+                        <li> <a href="{% url 'designs' %}">Search Designs</a> </li>
+                        <li> <a href="{% url 'portfolios' %}">View Portfolio</a> </li>
+                        
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 footer-widget">
+                    <h5 class="widget-title">Newsletter</h5>
+                    <p>Join our newsletter today, and get the best flats that we have to offer.</p>
+                    <form method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email Address" name="newsletter-email" value="">
+                        </div>
+                        <button type="submit" class="btn-custom primary light btn-block" name="button">Join Newsletter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="m-0">&copy; Copyright 2020 - <a href="#">PropertyplusDecor</a> All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li> <a href="{% url 'properties' %}">Find a Home</a> </li>
+                            <li> <a href="{% url 'legal' %}">Legal Policy</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Vendor Scripts -->
+    <script src="{% static 'js/plugins/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'js/plugins/waypoint.js' %}"></script>
+    <script src="{% static 'js/plugins/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.slimScroll.min.js' %}"></script>
+    <script src="{% static 'js/plugins/imagesloaded.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.steps.min.js' %}"></script>
+    <script src="{% static 'js/plugins/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/plugins/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/plugins/slick.min.js' %}"></script>
+    <script src="{% static 'js/plugins/select2.min.js' %}"></script>
+    <!-- Acres Scripts -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Map Scripts -->
+    <script src="assets/js/plugins/mapbox-gl.min.js"></script>
+    <script src="assets/js/mapdata.js"></script>
+    <script src="assets/js/map.js"></script>
+</body>
+
+</html>
+{% endblock %}

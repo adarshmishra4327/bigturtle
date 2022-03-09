@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+      <div class="container-fluid">
+        <a class="navbar-brand">Search Property</a>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-5">
+      <h1><p class="d-flex justify-content-center mb-5">Search Property</p></h1>
+    
+<form action="/searchproperty/" method="POST" enctype="multipart/form-data">
+
+
+  <div class="d-flex justify-content-around mt-5">
+
+        
+     
+
+    
+
+    <p class="ml-3 mr-3" style="color:blue;">State:</p>
+    <select name="state" class="form-control" id="sel1">
+      <option value=""></option>
+       
+       
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+        <option value="Daman and Diu">Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Puducherry">Puducherry</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+      
+    </select>
+    <p class="ml-3 mr-3" style="color:blue;">Pincode:</p>
+           
+    <input name="pincode" type="text" class="form-control" />
+    <p class="ml-3 mr-3" style="color:blue;">Status:</p>
+
+    <select name="propertystatus" class="form-control" id="sel1">
+      <option value=""></option>
+      <option>Under Construction</option>
+      <option>PreLaunch,OC</option>
+      <option>Ready to Move-in</option>
+      <option>received</option>
+    </select>
+    
+
+  
+
+  </div>
+    <div class="d-flex justify-content-around mt-3">
+
+     
+         
+        <p class="ml-3 mr-3" style="color:blue;">PropertyType:</p>
+       
+        <select name="propertytype" class="form-control" id="sel1">
+          <option value=""></option>
+            <option>SELECT</option>
+            <option>VILLA</option>
+            <option>COMMERCIAL</option>
+            <option>RESIDENTIAL</option>
+            <option>APARETMENT</option>
+            <option>AGRICULTURE</option>
+            <option>NON AGRICULTURE</option>
+
+        </select>
+
+
+        <p class="ml-3 mr-3" style="color:blue;">Price:</p>
+        <select name="price" class="form-control" id="sel1">
+          <option value=""></option>
+          <option>LESS THAN 20 LAKH</option>
+            <option>20-30 LAKH</option>
+            <option>30-50 LAKH</option>
+            <option>50-70 LAKH</option>
+            <option>70-1cr</option>
+            <option>Greater than 1cr</option>
+        </select>
+
+        <p class="ml-3 mr-3" style="color:blue;">Posession  Date</p>
+        <input name="possessiondate" type="date" class="form-control" id="sel1"/>
+        
+
+
+        
+     
+
+   
+
+        
+       
+
+    </div>
+    
+    <div class="d-flex justify-content-around mt-3">
+
+        
+     
+
+    
+
+           
+      <p class="ml-3 mr-3" style="color:blue;">Swimming:</p>
+      <select name="swimming" class="form-control" id="sel1">
+        <option value=""></option>
+          <option>YES</option>
+          <option>NO</option>
+      </select>
+     
+      <p class="ml-3 mr-3" style="color:blue;">Playground:</p>
+      <select name="playground" class="form-control" id="sel1">
+        <option value=""></option>
+          <option>YES</option>
+          <option>NO</option>
+      </select>
+   
+      <p class="ml-3 mr-3" style="color:blue;">CCTV:</p>
+      <select name="cctv" class="form-control" id="sel1">
+        <option value=""></option>
+        <option>YES</option>
+        <option>NO</option>
+      </select>
+   
+
+       
+
+    
+
+    </div>
+    
+
+
+
+    <div class="d-flex justify-content-around mt-2">
+
+        
+       
+
+
+        
+   
+
+        
+    
+
+    </div>
+    <div class="d-flex justify-content-around mt-3"><button type="submit" class="btn btn-warning">Search</button></div>
+    
+
+</form>
+     
+      
+      </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+
+        {% for list in data %}
+
+  
+      <div class="container py-2">
+        <div class="row text-center text-white mb-5">
+            <div class="col-lg-7 mx-auto">
+                <h1 class="display-4">Product List</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <!-- List group-->
+                <ul class="list-group shadow">
+                    <!-- list group item-->
+                    <li class="list-group-item" style="background-color:#99ffff">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center flex-column flex-lg-row p-3 ">
+                            <div class="media-body order-2 order-lg-1">
+                                <h5 class="mt-0 font-weight-bold mb-2"></h5>
+                                <b><p >Discription:- {{ list.fields.propertydescription}}</p></b>
+                                <b><p >State:- {{ list.fields.state}}</p></b>
+                                <b><p >Propertyname:- {{ list.fields.propertyname}}</p></b>
+                                <b><p >Propertyarea:- {{ list.fields.propertyarea}}</p></b>
+                                <b><p >Buildername:- {{ list.fields.buildername}}</p></b>
+                                <b><p >Possassiondate:- {{ list.fields.possassionate}}</p></b>
+                                <b><p >Propertyaddress:- {{ list.fields.propertyaddress}}</p></b>
+                                <div class="d-flex align-items-center justify-content-between mt-1">
+                                    <h6 class="font-weight-bold my-2">Price:- {{ list.fields.price}}</h6>
+                                    <ul class="list-inline small">
+                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    </ul>
+                                </div>
+                            </div><img style="border-width: 5px;" height="250"src="http://127.0.0.1:8000/media/{{ list.fields.thumbnail}}" alt="Generic placeholder image" width="250" class="ml-lg-5 order-1 order-lg-2">
+                        </div> <!-- End -->
+                    </li> <!-- End -->
+                    <!-- list group item-->
+                    <a href="/detailproperty?id={{list.pk}}" class="btn btn-info">View Detailes</a>
+                    
+                </ul> <!-- End -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
